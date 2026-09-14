@@ -677,13 +677,237 @@
         </section>
 
        
-        <section id="diagnostico">
-            <h2>3. Diagnóstico e Coleta de Dados</h2>
-            <p>Para entender o cenário real na comunidade, elaboramos uma Ficha de Diagnóstico baseada em três pilares fundamentais:</p>
-            <div class="grid-cards">
-                <div class="card">
-                    <h3>Pesquisa Local</h3>
-                    <p>Aplicação de questionários com 50 produtores para mapear os tipos de aparelhos conectados usados e a segurança das redes Wi-Fi rurais.</p>
+       
+<style>
+    :root {
+        --verde-principal: #2e7d32; 
+    }
+
+    .diagnostico-container {
+        max-width: 900px;
+        margin: 30px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    .diagnostico-container h2 {
+        color: #1b5e20;
+        font-size: 1.8rem;
+        margin-top: 0;
+    }
+
+    .diagnostico-container p {
+        line-height: 1.6;
+        color: #555;
+    }
+
+    
+    .btn-principal {
+        background-color: var(--verde-principal);
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin: 25px 0;
+    }
+
+    .btn-principal:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        filter: brightness(1.1);
+    }
+
+    .btn-principal:active {
+        transform: translateY(0);
+    }
+
+   
+    .painel-conteudo {
+        max-height: 2500px;
+        opacity: 1;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 30px;
+        margin-top: 20px;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .painel-conteudo.oculto {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-color: transparent;
+        pointer-events: none;
+        margin-top: 0;
+    }
+
+    .secao-interna {
+        margin-bottom: 35px;
+    }
+
+    .secao-interna:last-child {
+        margin-bottom: 0;
+    }
+
+    .secao-interna h3 {
+        color: #222;
+        border-left: 4px solid var(--verde-principal);
+        padding-left: 12px;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+
+    .secao-interna ul {
+        padding-left: 20px;
+    }
+
+    .secao-interna li {
+        margin-bottom: 12px;
+        line-height: 1.6;
+    }
+
+    
+    .tabela-responsiva {
+        overflow-x: auto;
+        margin-top: 20px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+    }
+
+    .tabela-riscos {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .tabela-riscos th, .tabela-riscos td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #edf2f7;
+        font-size: 0.95rem;
+    }
+
+    .tabela-riscos th {
+        background-color: #f7fafc;
+        color: #4a5568;
+        font-weight: bold;
+    }
+
+    
+    .badge {
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .badge.critico { background-color: #fff5f5; color: #c53030; }
+    .badge.alto { background-color: #fffaf0; color: #dd6b20; }
+</style>
+
+
+<div class="diagnostico-container">
+    <section id="diagnostico-avancado">
+        <h2>2. Diagnóstico e Coleta de Dados em Segurança Digital</h2>
+        <p>A agricultura inteligente transformou o campo em uma indústria dependente de dados em tempo real. No ecossistema da Agricultura 4.0, coletar informações sem um diagnóstico de proteção deixa vulnerável toda a cadeia produtiva e financeira do produtor.</p>
+        
+        
+        <button id="btn-diagnostico" class="btn-principal" onclick="toggleDiagnostico()">
+            <span id="icone-btn">📊</span> <span id="texto-btn">Iniciar Diagnóstico de Segurança</span>
+        </button>
+
+        
+        <div id="painel-infos" class="painel-conteudo oculto">
+            
+            <div class="secao-interna">
+                <h3>1. O Fluxo de Dados e a Superfície de Ataque</h3>
+                <p>A segurança digital no campo precisa monitorar as três camadas por onde as informações trafegam antes de virarem relatórios:</p>
+                <ul>
+                    <li><strong>Camada de Coleta (Ponta):</strong> Sensores de solo, estações climáticas e drones operando de forma isolada na lavoura, frequentemente sem protocolos de criptografia por rádio.</li>
+                    <li><strong>Camada de Transmissão (Rede):</strong> Torres, repetidores e Wi-Fi das fazendas. O maior erro é misturar o acesso da contabilidade/sede com as antenas que guiam as máquinas pesadas.</li>
+                    <li><strong>Camada de Processamento (Nuvem):</strong> Softwares de gestão e inteligência de mercado que armazenam o histórico da fazenda e exigem autenticação segura para barrar invasões.</li>
+                </ul>
+            </div>
+
+            <div class="secao-interna">
+                <h3>2. Matriz de Classificação e Criticidade de Riscos</h3>
+                <p>Nem toda informação tem o mesmo peso. O diagnóstico avalia o impacto de paralisação ou vazamento de dados:</p>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-riscos">
+                        <thead>
+                            <tr>
+                                <th>Dado Monitorado</th>
+                                <th>Impacto de um Ataque / Sequestro</th>
+                                <th>Nível de Risco</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Receitas de Pulverização</strong></td>
+                                <td>Sabotagem nas dosagens químicas, gerando perda física total das plantas.</td>
+                                <td><span class="badge critico">🔴 Crítico</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Telemetria e Rotas GPS</strong></td>
+                                <td>Bloqueio operacional e paradas de tratores e frotas autônomas na safra.</td>
+                                <td><span class="badge critico">🔴 Crítico</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mapas de Produtividade do Solo</strong></td>
+                                <td>Espionagem industrial e manipulação comercial de preços do hectare por terceiros.</td>
+                                <td><span class="badge alto">🟠 Alto</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="card">
-                    <h3>Gargalos Técnicos</h3>
+            </div>
+
+            <div class="secao-interna">
+                <h3>3. Plano de Mitigação Pós-Diagnóstico</h3>
+                <p>Diretrizes básicas obrigatórias após descobrir as brechas da propriedade:</p>
+                <ul>
+                    <li><strong>Isolamento de Redes:</strong> Separar a rede operacional do maquinário da rede de computadores administrativos da fazenda.</li>
+                    <li><strong>Backups Físicos (Air-Gapped):</strong> Salvar dados históricos cruciais de produção em mídias físicas fora da internet para proteção contra vírus de sequestro de dados (Ransomware).</li>
+                    <li><strong>Controle de Fornecedores:</strong> Exigir que todas as empresas parceiras de tecnologia (Agtechs) utilizem conexões seguras criptografadas.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+<script>
+    function toggleDiagnostico() {
+        const painel = document.getElementById("painel-infos");
+        const textoBtn = document.getElementById("texto-btn");
+        const iconeBtn = document.getElementById("icone-btn");
+        
+        painel.classList.toggle("oculto");
+        
+        if (painel.classList.contains("oculto")) {
+            textoBtn.innerText = "Iniciar Diagnóstico de Segurança";
+            iconeBtn.innerText = "📊";
+        } else {
+            textoBtn.innerText = "Fechar Diagnóstico";
+            iconeBtn.innerText = "❌";
+        }
+    }
+</script>
