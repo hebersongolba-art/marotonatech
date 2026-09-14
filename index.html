@@ -247,5 +247,285 @@
         }
     </script>
 
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1b3d2f;
+            color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 4px solid #2e7d32;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #81c784;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1b3d2f 0%, #0d1f16 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Área dos Botões */
+        .action-area {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn-reveal {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-reveal:hover {
+            background-color: #1b3d2f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        /* Conteúdos Ocultos por Padrão */
+        .content-wrapper {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content-wrapper.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Seções Internas */
+        .secao {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .secao:last-child {
+            border-bottom: none;
+        }
+
+        .section-badge {
+            background-color: #2e7d32;
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #1b3d2f;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #2e7d32;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .texto-principal {
+            font-size: 16px;
+            color: #455a64;
+        }
+
+        .texto-principal p {
+            margin-bottom: 15px;
+        }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border-left: 4px solid #2e7d32;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 15px;
+        }
+
+        .card h4 {
+            color: #1b3d2f;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Tabela */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #1b3d2f;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f8e9;
+        }
+
+        footer {
+            background-color: #0d1f16;
+            color: #90a4ae;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Agro<span>Shield</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Diagnóstico de Riscos Digitais</h2>
+            <p>Selecione as seções abaixo para acessar a análise estruturada sobre a segurança no campo.</p>
+            
+            <div class="action-area">
+                <!-- Botão para controlar a Parte 1 -->
+                <button class="btn-reveal" id="btnParte1" onclick="toggleSection('infoParte1', 'btnParte1', 'Ver O Problema Proposto')">Ver O Problema Proposto</button>
+                
+                <!-- Botão para controlar a Parte 2 -->
+                <button class="btn-reveal" id="btnParte2" onclick="toggleSection('infoParte2', 'btnParte2', 'Ver Artefato: Efeito Cascata')">Ver Artefato: Efeito Cascata</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTAINER PRINCIPAL DO CONTEÚDO -->
+    <main class="container">
+        
+        <!-- PRIMEIRA PARTE: O PROBLEMA PROPOSTO (Oculto por padrão, controlado pelo botão 1) -->
+        <div class="content-wrapper" id="infoParte1">
+            <section class="secao">
+                <span class="section-badge">Parte 1</span>
+                <h3 class="section-title">O Problema Proposto</h3>
+                <div class="grid">
+                    <div class="texto-principal">
+                        <p>O <strong>Agro 4.0</strong> introduziu tecnologias revolucionárias como a Internet das Coisas (IoT), automação avançada e inteligência artificial no campo. No entanto, essa rápida digitalização não foi acompanhada por investimentos equivalentes em cibersegurança.</p>
+                        <p>Como o setor gerencia infraestruturas críticas de abastecimento alimentar e movimenta grandes volumes financeiros, a falta de proteção adequada tornou fazendas e cooperativas <strong>alvos altamente lucrativos</strong> para criminosos virtuais.</p>
+                        <p>A vulnerabilidade de sistemas conectados coloca em risco não apenas os negócios locais, mas ameaça diretamente a continuidade das safras, a segurança dos dados operacionais e a estabilidade econômica de toda a cadeia de suprimentos.</p>
+                    </div>
+                    <div class="destaque-lateral">
+                        <div class="card" style="border-left-color: #e53935;">
+                            <h4>🚨 Risco Crítico</h4>
+                            <p>Infraestruturas alimentares são consideradas ativos de segurança nacional. Um ataque digital pode paralisar cadeias de suprimentos inteiras.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEGUNDA PARTE: ARTEFATO DIGITAL & EFEITO CASCATA (Oculto por padrão, controlado pelo botão 2) -->
+        <div class="content-wrapper" id="infoParte2">
+            <section class="secao">
+                <span class="section-badge">Parte 2</span>
+                <h3 class="section-title">Artefato Digital: O Efeito Cascata na Sociedade</h3>
+                <p class="texto-principal" style="margin-bottom: 25px;">
+                    O problema da vulnerabilidade cibernética no Agro 4.0 não fica restrito às cercas das propriedades rurais. Ele afeta diretamente toda a sociedade, gerando um efeito cascata prejudicial que vai desde o pequeno produtor até a mesa do consumidor final.
+                </p>
+
+                <div class="grid">
+                    <div>
+                        <div class="card">
+                            <h4>1. O Pequeno e Médio Produtor</h4>
+                            <p>A paralisia de maquinários ou sensores por <em>ransomware</em> interrompe colheitas e plantios. Sem capital para suportar longas paralisações, o produtor enfrenta o risco direto de endividamento e falência.</p>
+                        </div>
+                        <div class="card">
+                            <h4>2. Logística e Cooperativas</h4>
+                            <p>Falhas induzidas em sensores de temperatura estragam toneladas de alimentos perecíveis. O travamento de sistemas operacionais e notas fiscais gera gargalos de escoamento e atrasa frotas inteiras.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <h4>3. Mercado Financeiro e Macroeconomia</h4>
+                            <p>Ataques virtuais a grandes tradings de grãos distorcem previsões de estoque e manipulam o mercado de commodities em bolsas internacionais, gerando forte instabilidade econômica.</p>
+                        </div>
+                        <div class="card">
+                            <h4>4. O Consumidor Final</h4>
+
 </body>
 </html>
