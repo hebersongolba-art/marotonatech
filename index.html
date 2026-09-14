@@ -490,220 +490,397 @@
         </section>
 
         
-        <section id="problema">
-            <h2>2. Identificação do Problema</h2>
-            <p>Pequenos e médios produtores rurais estão modernizando suas fazendas, mas não possuem infraestrutura e conhecimento para proteger seus sistemas digitais.</p>
-            
-            <div class="grid-cards">
-                <div class="card alerta">
-                    <h3>Sequestro de Dados</h3>
-                    <p>Invasores bloqueiam os computadores da fazenda com vírus do tipo ransomware e exigem altos resgates.</p>
-                </div>
-                <div class="card alerta">
-                    <h3>Paralisação Física</h3>
-                    <p>Interrupção de sistemas automatizados que controlam a irrigação ou a rota de colheita do maquinário.</p>
-                </div>
-                <div class="card alerta">
-                    <h3>Fraudes Financeiras</h3>
-                    <p>Adulteração de boletos bancários de fornecedores ou roubo de notas fiscais eletrônicas.</p>
-                </div>
-            </div>
-        </section>
+        O seu código atual possui alguns blocos repetidos, tags cortadas (como a <div class="card"> do Gargalo Técnico que ficou aberta) e elementos de estilos misturados com a estrutura lógica do HTML.
+Como você deseja que as informações profundas apareçam ao clicar no botão, organizei toda a estrutura em ordem cronológica de leitura usando as seções do seu menu. O botão agora ativa o painel que contém o detalhamento técnico e a tabela comparativa.
+Aqui está o código completo unificado e corrigido para você copiar e colar:
 
-        
-        <section id="diagnostico">
-            <h2>3. Diagnóstico e Coleta de Dados</h2>
-            <p>Para entender o cenário real na comunidade, elaboramos uma Ficha de Diagnóstico baseada em três pilares fundamentais:</p>
-            <div class="grid-cards">
-                <div class="card">
-                    <h3>Pesquisa Local</h3>
-                    <p>Aplicação de questionários com 50 produtores para mapear os tipos de aparelhos conectados usados e a segurança das redes Wi-Fi rurais.</p>
-                </div>
-                <div class="card">
-                    <h3>Gargalos Técnicos</h3>
-
-       <style>table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        th, td {
-            padding: 0.75rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        th {
-            background-color: var(--verde-principal);
-            color: var(--texto-claro);
-        }
-
-        tr:nth-child(even) {
-            background-color: var(--fundo-cinza);
-        }
-
-
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--verde-claro);
-        }
-
-        .timeline-item::before { 
-  content: ""; 
-  position: absolute; 
-  left: -6px; 
-  top: 4px; 
-  width: 10px; 
-  height: 10px; 
-  border-radius: 50%; 
-  background-color: var(--verde-principal); 
-}
-
-
-        .timeline-title {
-            font-weight: bold;
-            color: var(--verde-escuro);
-        }
-
-        
-        footer {
-            background-color: var(--verde-escuro);
-            color: var(--texto-claro);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .filosofia {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            nav ul {
-                width: 100%;
-                justify-content: space-around;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-            section {
-                padding: 1.5rem;
-            }
-        }</style> 
-
-
-
-</head>
-<body>
-
-    
-    <nav>
-        <div class="logo">AgroEscudo Cyber</div>
-        <ul>
-            <li><a href="#tema">O Tema</a></li>
-            <li><a href="#problema">O Problema</a></li>
-            <li><a href="#solucao">A Solução</a></li>
-            <li><a href="#pitch">O Pitch</a></li>
-        </ul>
-    </nav>
-
-   
-    
-      
-       <section id="problema-solucao">
-            <h2>2. Impacto Técnico: Problemas e Soluções no Campo</h2>
-            <p>A Agricultura 4.0 trouxe uma modernização acelerada, mas também abriu as portas para vulnerabilidades digitais sistêmicas que ameaçam a continuidade do agronegócio.</p>
-            
-            <!-- Botão de Ação -->
-            <button id="btn-problema-solucao" class="btn-principal" onclick="toggleProblemaSolucao()">
-                <span id="ps-icone-btn">⚠️</span> <span id="ps-texto-btn">Análise Avançada de Riscos e Defesas</span>
-            </button>
-
-            <!-- Painel Oculto por padrão -->
-            <div id="painel-ps" class="painel-conteudo oculto">
-                
-                <!-- Bloco do Problema -->
-                <div class="bloco-tecnico-risco">
-                    <h3 class="titulo-problema">⚠️ O PROBLEMA: A Vulnerabilidade Sistêmica da Agricultura 4.0</h3>
-                    
-                    <div class="secao-interna">
-                        <h4>1. O Paradoxo da Modernização sem Proteção (Gargalo de Infraestrutura)</h4>
-                        <p>O produtor rural brasileiro assimilou rapidamente tecnologias de ponta para aumentar a produtividade por hectare. No entanto, a aquisição de maquinário hiperconectado (tratores com piloto automático, drones de pulverização e sensores de solo) ocorreu de forma puramente operacional, negligenciando a segurança da informação.</p>
-                        <p>O ecossistema de campo carece de firewalls, sistemas de detecção de intrusão (IDS) e roteadores industriais. O resultado é um cenário onde dispositivos de missão crítica dividem a mesma topologia de rede que celulares pessoais e smart TVs da sede da fazenda.</p>
-                    </div>
-
-                    <div class="secao-interna">
-                        <h4>2. O Analfabetismo Digital Corporativo no Campo</h4>
-                        <p>Diferente de uma indústria urbana, que conta com departamentos dedicados de Tecnologia da Informação (TI), a maioria das propriedades rurais de médio e grande porte é gerida por estruturas familiares ou cooperativas com baixo nível de maturidade digital em segurança. Os operadores de maquinário e gerentes de campo não possuem treinamento para identificar ataques de engenharia social, como o <em>phishing</em> (e-mails ou mensagens de WhatsApp falsas com links maliciosos). Uma única credencial vazada de um gerente de logística é suficiente para comprometer todo o ERP da propriedade.</p>
-                    </div>
-
-                    <div class="secao-interna">
-                        <h4>3. A Gravidade Técnica das Três Principais Ameaças:</h4>
-                        <ul class="lista-detalhada-risco">
-                            <li><strong>Ransomware e o Sequestro de Ativos:</strong> Não se trata apenas do bloqueio de arquivos de texto. No agro, o ransomware criptografa bancos de dados contendo mapas de aplicação em taxa variada e dados de telemetria histórica. Sem esses arquivos, os computadores de bordo das colhedoras não sabem como operar com eficiência.</li>
-                            <li><strong>Paralisação Física (Ataques a TO):</strong> Invasores exploram portas abertas em sistemas de Tecnologia Operacional (TO), como controladores lógicos programáveis (CLPs) de pivôs de irrigação ou termômetros de silos de grãos. Ao adulterar a temperatura de um silo remotamente, o hacker pode deteriorar toneladas de grãos em poucas horas sem disparar alarmes físicos.</li>
-                            <li><strong>Fraudes na Cadeia de Suprimentos:</strong> O ecossistema financeiro do agro movimenta bilhões por meio de CPRs (Cédulas de Produto Rural), notas fiscais eletrônicas (NF-e) e boletos de insumos (fertilizantes e sementes). O desvio de fluxos de e-mail por técnicas de Man-in-the-Middle (MitM) permite que criminosos interceptem e alterem os dados bancários desses boletos, desviando pagamentos milionários.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Bloco da Solução -->
-                <div class="bloco-tecnico-defesa">
-                    <h3 class="titulo-solucao">🛡️ A SOLUÇÃO: Arquitetura de Defesa e Resiliência Cibernética Rural</h3>
-                    
-                    <div class="secao-interna">
-                        <h4>1. Implementação da Filosofia Zero Trust (Confiança Zero)</h4>
-                        <p>A solução estrutural para a segurança digital no campo começa com a transição para o modelo de segurança Zero Trust, onde nenhum dispositivo ou usuário possui acesso irrestrito por padrão, independentemente de estar dentro da fazenda. Isso é traduzido na prática através da Segregação de Redes Lógicas (VLANs):</p>
-                        <ul class="lista-subredes">
-                            <li><strong>Rede Corporativa:</strong> Exclusiva para emissão de notas fiscais, contratos e e-mails administrativos.</li>
-                            <li><strong>Rede Operacional (TO):</strong> Uma sub-rede isolada e protegida por criptografia robusta onde trafegam apenas os dados de telemetria das máquinas e sensores IoT de solo, impedindo o efeito dominó caso o escritório seja infectado.</li>
-                        </ul>
-                    </div>
-
-                    <div class="secao-interna">
-                        <h4>2. Fortalecimento da Identidade Digital e Governança de Acesso</h4>
-                        <p>Todo e qualquer acesso a plataformas de gestão de safra, sistemas climáticos e contas bancárias do ecossistema agro deve passar pela obrigatoriedade da Autenticação Multifator (MFA/2FA). Adicionalmente, as credenciais padrão de fábrica (hardcoded) de todos os sensores IoT e roteadores instalados nas lavouras devem ser obrigatoriamente alteradas antes da ativação em produção.</p>
-                    </div>
-
-                    <div class="secao-interna">
-                        <h4>3. Arquitetura de Redundância e Proteção Air-Gapped</h4>
-                        <p>Para neutralizar o impacto financeiro de um ataque de ransomware, o plano de continuidade de negócios da propriedade precisa adotar a técnica de Backups Air-Gapped. Consiste em automatizar o espelhamento dos dados de produtividade e financeiros em servidores físicos locais que permanecem completamente desconectados da internet durante a maior parte do dia. Em caso de sequestro digital da nuvem, a operação limpa os sistemas afetados e restaura o último ponto seguro em questão de horas, eliminando a necessidade e a extorsão do pagamento de resgates.</p>
-                    </div>
-
-                    <div class="secao-interna">
-                        <h4>4. Letramento Digital e Treinamento de Campo</h4>
-                        <p>A criação de um "Escudo Humano de Defesa". Implementação de cartilhas interativas e treinamentos periódicos rápidos para tratoristas, agrônomos e assistentes administrativos, capacitando-os a reconhecer táticas de engenharia social, uso de redes Wi-Fi públicas externas e procedimentos de resposta rápida ao notar anomalias nas telas das máquinas agrícolas.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-<!-- Adicione estes estilos complementares dentro da sua tag <style> existente -->
+<!-- ESTILOS UNIFICADOS (Coloque preferencialmente dentro da tag <style> do seu <head>) -->
 <style>
-    /* Estilos do Painel e do Botão */
+    :root {
+        --verde-escuro: #1b4332;
+        --verde-principal: #2d6a4f;
+        --verde-claro: #52b788;
+        --laranja-alerta: #d97706;
+        --fundo-cinza: #f8f9fa;
+        --texto-escuro: #212529;
+        --texto-claro: #ffffff;
+        --sombra: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: var(--fundo-cinza);
+        color: var(--texto-escuro);
+        line-height: 1.6;
+    }
+
+    nav {
+        background-color: var(--verde-escuro);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--sombra);
+    }
+
+    nav .logo {
+        color: var(--texto-claro);
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--texto-claro);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: var(--verde-claro);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    section {
+        background: var(--texto-claro);
+        padding: 2.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: var(--sombra);
+    }
+
+    h2 {
+        color: var(--verde-escuro);
+        border-bottom: 3px solid var(--verde-claro);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    .grid-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .card {
+        background-color: var(--fundo-cinza);
+        padding: 1.5rem;
+        border-radius: 6px;
+        border-left: 4px solid var(--verde-principal);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .card.alerta {
+        border-left-color: var(--laranja-alerta);
+    }
+
+    .card h3 {
+        color: var(--verde-escuro);
+        margin-bottom: 0.5rem;
+    }
+
+    .card.alerta h3 {
+        color: var(--laranja-alerta);
+    }
+
+    /* Estilos do Botão Interativo e Painel Ocultável */
+    .btn-principal {
+        background-color: var(--verde-principal);
+        color: var(--texto-claro);
+        border: none;
+        padding: 14px 28px;
+        font-size: 1.05rem;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: var(--sombra);
+        transition: all 0.3s ease;
+        margin: 20px 0;
+    }
+
+    .btn-principal:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        filter: brightness(1.1);
+    }
+
+    .painel-conteudo {
+        max-height: 5000px;
+        opacity: 1;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+        background: var(--texto-claro);
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+    .painel-conteudo.oculto {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-color: transparent;
+        pointer-events: none;
+        margin-top: 0;
+    }
+
+    .bloco-tecnico-risco {
+        border-left: 5px solid var(--laranja-alerta);
+        padding-left: 20px;
+        margin-bottom: 40px;
+    }
+
+    .bloco-tecnico-defesa {
+        border-left: 5px solid var(--verde-claro);
+        padding-left: 20px;
+    }
+
+    .titulo-problema {
+        color: var(--laranja-alerta) !important;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .titulo-solucao {
+        color: var(--verde-principal) !important;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .secao-interna {
+        margin-bottom: 20px;
+    }
+
+    .secao-interna h4 {
+        color: var(--verde-escuro);
+        margin-bottom: 6px;
+        font-size: 1.1rem;
+    }
+
+    .lista-detalhada-risco, .lista-subredes {
+        padding-left: 20px;
+        list-style-type: none;
+    }
+
+    .lista-detalhada-risco li {
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .lista-detalhada-risco li::before {
+        content: "❌";
+        position: absolute;
+        left: -22px;
+        font-size: 0.9rem;
+    }
+
+    .lista-subredes li {
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+    .lista-subredes li::before {
+        content: "🛡️";
+        position: absolute;
+        left: -22px;
+        font-size: 0.9rem;
+    }
+
+    /* Estilos das Tabelas */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+        background-color: var(--verde-principal);
+        color: var(--texto-claro);
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--fundo-cinza);
+    }
+
+    /* Estilos da Timeline (Linha do tempo) */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        padding-left: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 1.5rem;
+        border-left: 2px solid var(--verde-claro);
+    }
+
+    .timeline-item::before { 
+        content: ""; 
+        position: absolute; 
+        left: -6px; 
+        top: 4px; 
+        width: 10px; 
+        height: 10px; 
+        border-radius: 50%; 
+        background-color: var(--verde-principal); 
+    }
+
+    .timeline-title {
+        font-weight: bold;
+        color: var(--verde-escuro);
+    }
+
+    footer {
+        background-color: var(--verde-escuro);
+        color: var(--texto-claro);
+        text-align: center;
+        padding: 2rem;
+        margin-top: 4rem;
+    }
+
+    footer p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .filosofia {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        nav ul {
+            width: 100%;
+            justify-content: space-around;
+        }
+        section {
+            padding: 1.5rem;
+        }
+    }
+</style>
+<!-- MENU DE NAVEGAÇÃO -->
+<nav>
+    <div class="logo">AgroEscudo Cyber</div>
+    <ul>
+        <li><a href="#tema">O Tema</a></li>
+        <li><a href="#problema">O Problema</a></li>
+        <li><a href="#diagnostico">O Diagnóstico</a></li>
+        <li><a href="#solucao">A Solução</a></li>
+        <li><a href="#pitch">O Pitch</a></li>
+    </ul>
+</nav>
+<!-- ESTRUTURA DO CONTEÚDO PRINCIPAL -->
+<div class="container">
+
+    <!-- SEÇÃO 2: O PROBLEMA -->
+    <section id="problema">
+        <h2>2. Identificação do Problema</h2>
+        <p>Pequenos e médios produtores rurais estão modernizando suas fazendas, mas não possuem infraestrutura e conhecimento para proteger seus sistemas digitais.</p>
+        
+        <div class="grid-cards">
+            <div class="card alerta">
+                <h3>Sequestro de Dados</h3>
+                <p>Invasores bloqueiam os computadores da fazenda com vírus do tipo ransomware e exigem altos resgates.</p>
+            </div>
+            <div class="card alerta">
+                <h3>Paralisação Física</h3>
+                <p>Interrupção de sistemas automatizados que controlam a irrigação ou a rota de colheita do maquinário.</p>
+            </div>
+            <div class="card alerta">
+                <h3>Fraudes Financeiras</h3>
+                <p>Adulteração de boletos bancários de fornecedores ou roubo de notas fiscais eletrônicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: DIAGNÓSTICO E COLETA DE DADOS -->
+    <section id="diagnostico">
+        <h2>3. Diagnóstico e Coleta de Dados</h2>
+        <p>Para entender o cenário real na comunidade, elaboramos uma Ficha de Diagnóstico baseada em três pilares fundamentais:</p>
+        
+        <div class="grid-cards">
+            <div class="card">
+                <h3>Pesquisa Local</h3>
+                <p>Aplicação de questionários com 50 produtores para mapear os tipos de aparelhos conectados usados e a segurança das redes Wi-Fi rurais.</p>
+            </div>
+            <div class="card">
+                <h3>Gargalos Técnicos</h3>
+                <p>Análise aprofundada sobre as falhas e brechas de hardware e infraestrutura de rede encontradas nas propriedades.</p>
+            </div>
+            <div class="card">
+                <h3>Cronograma de Ação</h3>
+                <p>Mapeamento temporal dos diagnósticos realizados para implementação da segurança da informação.</p>
+            </div>
+        </div>
+
+        <!-- Botão Interativo para abrir os textos aprofundados -->
+        <button id="btn-problema-solucao" class="btn-principal" onclick="toggleProblemaSolucao()">
+            <span id="ps-icone-btn">⚠️</span> <span id="ps-texto-btn">Análise Avançada de Riscos e Defesas</span>
+        </button>
+
+        <!-- Painel Expansível (Inicia oculto com a classe 'oculto') -->
+        <div id="painel-ps" class="painel-conteudo oculto">
+            
+            <!-- Bloco Teórico do Problema Profundo -->
+            <div class="bloco-tecnico-risco">
+                <h3 class="titulo-problema">⚠️ O PROBLEMA: A Vulnerabilidade Sistêmica da Agricultura 4.0</h3>
+                
+
+
+
+<style>
+    
     .btn-principal {
         background-color: var(--verde-principal);
         color: var(--texto-claro);
@@ -749,7 +926,7 @@
         margin-top: 0;
     }
 
-    /* Divisão de Blocos Técnicos (Problema e Solução) */
+   
     .bloco-tecnico-risco {
         border-left: 5px solid var(--laranja-alerta);
         padding-left: 20px;
@@ -783,7 +960,7 @@
         font-size: 1.1rem;
     }
 
-    /* Listas Internas customizadas */
+   
     .lista-detalhada-risco, .lista-subredes {
         padding-left: 20px;
     }
