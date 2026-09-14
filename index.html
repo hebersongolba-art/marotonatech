@@ -630,51 +630,191 @@
     </nav>
 
    
-    <header>
-        <h1>Segurança Digital no Campo</h1>
-        <p>Projeto Desenvolvido para a Maratona Tech — Resiliência operacional, proteção de dados e conscientização cibernética na Agricultura 4.0.</p>
-    </header>
-
-    <div class="container">
-    <section id="tema">
-        <h2>1. Definição do Tema</h2>
-        
-        
-        <div class="tema-conteudo">
-            <div class="tema-texto">
-                <p>O avanço da <strong>Agricultura 4.0</strong> introduziu tecnologias modernas no cotidiano rural, como internet das coisas (sensores de solo), frotas autônomas guiadas por satélites e drones agrícolas. Essa conexão direta entre computadores e os sistemas físicos da fazenda criou novas vulnerabilidades.</p>
-                <p>A segurança digital no campo tornou-se um fator essencial para garantir a sustentabilidade financeira do produtor e a segurança da produção de alimentos do Brasil.</p>
-            </div>
-            
-            <div class="tema-imagem">
-               
-                <img src="https://unsplash.com" alt="Tecnologia na agricultura de precisão">
-            </div>
-        </div>
-    </section>
-</div>
-
-
+    
       
-        <section id="problema">
-            <h2>2. Identificação do Problema</h2>
-            <p>Pequenos e médios produtores rurais estão modernizando suas fazendas, mas não possuem infraestrutura e conhecimento para proteger seus sistemas digitais.</p>
+       <section id="problema-solucao">
+            <h2>2. Impacto Técnico: Problemas e Soluções no Campo</h2>
+            <p>A Agricultura 4.0 trouxe uma modernização acelerada, mas também abriu as portas para vulnerabilidades digitais sistêmicas que ameaçam a continuidade do agronegócio.</p>
             
-            <div class="grid-cards">
-                <div class="card alerta">
-                    <h3>Sequestro de Dados</h3>
-                    <p>Invasores bloqueiam os computadores da fazenda com vírus do tipo ransomware e exigem altos resgates.</p>
+            <!-- Botão de Ação -->
+            <button id="btn-problema-solucao" class="btn-principal" onclick="toggleProblemaSolucao()">
+                <span id="ps-icone-btn">⚠️</span> <span id="ps-texto-btn">Análise Avançada de Riscos e Defesas</span>
+            </button>
+
+            <!-- Painel Oculto por padrão -->
+            <div id="painel-ps" class="painel-conteudo oculto">
+                
+                <!-- Bloco do Problema -->
+                <div class="bloco-tecnico-risco">
+                    <h3 class="titulo-problema">⚠️ O PROBLEMA: A Vulnerabilidade Sistêmica da Agricultura 4.0</h3>
+                    
+                    <div class="secao-interna">
+                        <h4>1. O Paradoxo da Modernização sem Proteção (Gargalo de Infraestrutura)</h4>
+                        <p>O produtor rural brasileiro assimilou rapidamente tecnologias de ponta para aumentar a produtividade por hectare. No entanto, a aquisição de maquinário hiperconectado (tratores com piloto automático, drones de pulverização e sensores de solo) ocorreu de forma puramente operacional, negligenciando a segurança da informação.</p>
+                        <p>O ecossistema de campo carece de firewalls, sistemas de detecção de intrusão (IDS) e roteadores industriais. O resultado é um cenário onde dispositivos de missão crítica dividem a mesma topologia de rede que celulares pessoais e smart TVs da sede da fazenda.</p>
+                    </div>
+
+                    <div class="secao-interna">
+                        <h4>2. O Analfabetismo Digital Corporativo no Campo</h4>
+                        <p>Diferente de uma indústria urbana, que conta com departamentos dedicados de Tecnologia da Informação (TI), a maioria das propriedades rurais de médio e grande porte é gerida por estruturas familiares ou cooperativas com baixo nível de maturidade digital em segurança. Os operadores de maquinário e gerentes de campo não possuem treinamento para identificar ataques de engenharia social, como o <em>phishing</em> (e-mails ou mensagens de WhatsApp falsas com links maliciosos). Uma única credencial vazada de um gerente de logística é suficiente para comprometer todo o ERP da propriedade.</p>
+                    </div>
+
+                    <div class="secao-interna">
+                        <h4>3. A Gravidade Técnica das Três Principais Ameaças:</h4>
+                        <ul class="lista-detalhada-risco">
+                            <li><strong>Ransomware e o Sequestro de Ativos:</strong> Não se trata apenas do bloqueio de arquivos de texto. No agro, o ransomware criptografa bancos de dados contendo mapas de aplicação em taxa variada e dados de telemetria histórica. Sem esses arquivos, os computadores de bordo das colhedoras não sabem como operar com eficiência.</li>
+                            <li><strong>Paralisação Física (Ataques a TO):</strong> Invasores exploram portas abertas em sistemas de Tecnologia Operacional (TO), como controladores lógicos programáveis (CLPs) de pivôs de irrigação ou termômetros de silos de grãos. Ao adulterar a temperatura de um silo remotamente, o hacker pode deteriorar toneladas de grãos em poucas horas sem disparar alarmes físicos.</li>
+                            <li><strong>Fraudes na Cadeia de Suprimentos:</strong> O ecossistema financeiro do agro movimenta bilhões por meio de CPRs (Cédulas de Produto Rural), notas fiscais eletrônicas (NF-e) e boletos de insumos (fertilizantes e sementes). O desvio de fluxos de e-mail por técnicas de Man-in-the-Middle (MitM) permite que criminosos interceptem e alterem os dados bancários desses boletos, desviando pagamentos milionários.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card alerta">
-                    <h3>Paralisação Física</h3>
-                    <p>Interrupção de sistemas automatizados que controlam a irrigação ou a rota de colheita do maquinário.</p>
+
+                <!-- Bloco da Solução -->
+                <div class="bloco-tecnico-defesa">
+                    <h3 class="titulo-solucao">🛡️ A SOLUÇÃO: Arquitetura de Defesa e Resiliência Cibernética Rural</h3>
+                    
+                    <div class="secao-interna">
+                        <h4>1. Implementação da Filosofia Zero Trust (Confiança Zero)</h4>
+                        <p>A solução estrutural para a segurança digital no campo começa com a transição para o modelo de segurança Zero Trust, onde nenhum dispositivo ou usuário possui acesso irrestrito por padrão, independentemente de estar dentro da fazenda. Isso é traduzido na prática através da Segregação de Redes Lógicas (VLANs):</p>
+                        <ul class="lista-subredes">
+                            <li><strong>Rede Corporativa:</strong> Exclusiva para emissão de notas fiscais, contratos e e-mails administrativos.</li>
+                            <li><strong>Rede Operacional (TO):</strong> Uma sub-rede isolada e protegida por criptografia robusta onde trafegam apenas os dados de telemetria das máquinas e sensores IoT de solo, impedindo o efeito dominó caso o escritório seja infectado.</li>
+                        </ul>
+                    </div>
+
+                    <div class="secao-interna">
+                        <h4>2. Fortalecimento da Identidade Digital e Governança de Acesso</h4>
+                        <p>Todo e qualquer acesso a plataformas de gestão de safra, sistemas climáticos e contas bancárias do ecossistema agro deve passar pela obrigatoriedade da Autenticação Multifator (MFA/2FA). Adicionalmente, as credenciais padrão de fábrica (hardcoded) de todos os sensores IoT e roteadores instalados nas lavouras devem ser obrigatoriamente alteradas antes da ativação em produção.</p>
+                    </div>
+
+                    <div class="secao-interna">
+                        <h4>3. Arquitetura de Redundância e Proteção Air-Gapped</h4>
+                        <p>Para neutralizar o impacto financeiro de um ataque de ransomware, o plano de continuidade de negócios da propriedade precisa adotar a técnica de Backups Air-Gapped. Consiste em automatizar o espelhamento dos dados de produtividade e financeiros em servidores físicos locais que permanecem completamente desconectados da internet durante a maior parte do dia. Em caso de sequestro digital da nuvem, a operação limpa os sistemas afetados e restaura o último ponto seguro em questão de horas, eliminando a necessidade e a extorsão do pagamento de resgates.</p>
+                    </div>
+
+                    <div class="secao-interna">
+                        <h4>4. Letramento Digital e Treinamento de Campo</h4>
+                        <p>A criação de um "Escudo Humano de Defesa". Implementação de cartilhas interativas e treinamentos periódicos rápidos para tratoristas, agrônomos e assistentes administrativos, capacitando-os a reconhecer táticas de engenharia social, uso de redes Wi-Fi públicas externas e procedimentos de resposta rápida ao notar anomalias nas telas das máquinas agrícolas.</p>
+                    </div>
                 </div>
-                <div class="card alerta">
-                    <h3>Fraudes Financeiras</h3>
-                    <p>Adulteração de boletos bancários de fornecedores ou roubo de notas fiscais eletrônicas.</p>
-                </div>
+
             </div>
         </section>
+
+<!-- Adicione estes estilos complementares dentro da sua tag <style> existente -->
+<style>
+    /* Estilos do Painel e do Botão */
+    .btn-principal {
+        background-color: var(--verde-principal);
+        color: var(--texto-claro);
+        border: none;
+        padding: 14px 28px;
+        font-size: 1.05rem;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: var(--sombra);
+        transition: all 0.3s ease;
+        margin: 20px 0;
+    }
+
+    .btn-principal:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        filter: brightness(1.1);
+    }
+
+    .painel-conteudo {
+        max-height: 4000px;
+        opacity: 1;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+        background: var(--texto-claro);
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+    .painel-conteudo.oculto {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-color: transparent;
+        pointer-events: none;
+        margin-top: 0;
+    }
+
+    /* Divisão de Blocos Técnicos (Problema e Solução) */
+    .bloco-tecnico-risco {
+        border-left: 5px solid var(--laranja-alerta);
+        padding-left: 20px;
+        margin-bottom: 40px;
+    }
+
+    .bloco-tecnico-defesa {
+        border-left: 5px solid var(--verde-claro);
+        padding-left: 20px;
+    }
+
+    .titulo-problema {
+        color: var(--laranja-alerta) !important;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .titulo-solucao {
+        color: var(--verde-principal) !important;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .secao-interna {
+        margin-bottom: 20px;
+    }
+
+    .secao-interna h4 {
+        color: var(--verde-escuro);
+        margin-bottom: 6px;
+        font-size: 1.1rem;
+    }
+
+    /* Listas Internas customizadas */
+    .lista-detalhada-risco, .lista-subredes {
+        padding-left: 20px;
+    }
+
+    .lista-detalhada-risco li {
+        margin-bottom: 12px;
+        position: relative;
+        list-style-type: none;
+    }
+
+    .lista-detalhada-risco li::before {
+        content: "❌";
+        position: absolute;
+        left: -22px;
+        font-size: 0.9rem;
+    }
+
+    .lista-subredes li {
+        margin-bottom: 8px;
+        position: relative;
+        list-style-type: none;
+    }
+
+    .lista-subredes li::before {
+        content: "🛡️";
+        position: absolute;
+        left: -22px;
+        font-size: 0.9rem;
+    }
+</style>
+
 
        
        
