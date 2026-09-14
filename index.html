@@ -3,173 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segurança Digital no Campo</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AgroSeguro | Cibersegurança no Agro 4.0</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --accent: #0288d1;
+            --dark: #1e251f;
+            --light: #f4f7f5;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        header h1 span {
+            color: var(--primary);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(rgba(30, 37, 31, 0.85), rgba(30, 37, 31, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0.5rem auto 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* NOVA SEÇÃO: ARTEFATO DIGITAL */
+        .artefato-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .artefato-img {
+            flex: 1;
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid #ddd;
+        }
+
+        .artefato-info {
+            flex: 1;
+        }
+
+        .btn-info {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-info:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* MODAL DE INFORMAÇÕES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-left: 8px solid var(--accent);
+            position: relative;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .close-modal:hover {
+            color: var(--dark);
+        }
+
+        .modal h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal ul {
+            margin-left: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .modal li {
+            margin-bottom: 0.6rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .sustainable-box {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+
+        .sustainable-box h3 {
+            margin-bottom: 1rem;
+            color: #a5d6a7;
+        }
+
+        .sustainable-box ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .sustainable-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .simulator {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: var(--light);
+            font-size: 1rem;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0277bd;
+        }
+
+        #painel_diagnostico {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .danger { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+        .warning { background-color: #fffde7; color: #f57f17; border: 1px solid #fff59d; }
+        .success { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 1rem; }
+            nav a { margin: 0 0.5rem; }
+            .hero h2 { font-size: 2rem; }
+            .artefato-section { flex-direction: column; text-align: center; padding: 2rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <h1 class="logo">🌾 Segurança Digital no Campo</h1>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#ameacas">Ameaças</a></li>
-                    <li><a href="#protecao">Proteção</a></li>
-                    <li><a href="#recursos">Recursos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
+        <h1>Agro<span>Seguro</span></h1>
+        <nav>
+            <a href="#problema">O Problema</a>
+            <a href="#artefato">Artefato Digital</a>
+            <a href="#solucoes">Soluções</a>
+            <a href="#simulador">Termômetro de Risco</a>
         </nav>
     </header>
 
-    <main>
-        <!-- Seção Início -->
-        <section id="inicio" class="hero">
-            <div class="container">
-                <h2>Proteja Sua Propriedade Rural</h2>
-                <p>Segurança digital é essencial para proteger seus dados, sistemas e patrimônio agrícola</p>
-                <button class="cta-button">Saiba Mais</button>
-            </div>
-        </section>
+    <section class="hero">
+        <h2>Protegendo a tecnologia que alimenta o mundo</h2>
+        <p>A rápida digitalização do agronegócio (Agro 4.0) trouxe sensores de IoT, automação e inteligência artificial para o campo, mas abriu portas para vulnerabilidades cibernéticas críticas. Proteja suas safras e dados.</p>
+    </section>
 
-        <!-- Seção Ameaças -->
-        <section id="ameacas" class="ameacas">
-            <div class="container">
-                <h2>Principais Ameaças Digitais</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>🦠 Malware</h3>
-                        <p>Softwares maliciosos que podem infectar seus computadores e roubar dados sensíveis.</p>
-                    </div>
-                    <div class="card">
-                        <h3>🎣 Phishing</h3>
-                        <p>Tentativas de enganar usuários para revelar informações pessoais e financeiras.</p>
-                    </div>
-                    <div class="card">
-                        <h3>🔐 Senhas Fracas</h3>
-                        <p>Fácil acesso não autorizado aos seus sistemas e contas importantes.</p>
-                    </div>
-                    <div class="card">
-                        <h3>📱 IoT Inseguro</h3>
-                        <p>Dispositivos conectados sem proteção adequada na sua rede agrícola.</p>
-                    </div>
-                    <div class="card">
-                        <h3>💻 Ransomware</h3>
-                        <p>Vírus que criptograma seus dados e exigem pagamento para recuperação.</p>
-                    </div>
-                    <div class="card">
-                        <h3>🌐 Wi-Fi Desprotegido</h3>
-                        <p>Redes sem encriptação permitem interceptação de dados transmitidos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="container">
 
-        <!-- Seção Proteção -->
-        <section id="protecao" class="protecao">
-            <div class="container">
-                <h2>Como Se Proteger</h2>
-                <div class="protecao-grid">
-                    <div class="protecao-item">
-                        <h3>1. Senhas Fortes</h3>
-                        <ul>
-                            <li>Use combinação de letras, números e símbolos</li>
-                            <li>Mínimo 12 caracteres</li>
-                            <li>Altere senhas regularmente</li>
-                            <li>Nunca compartilhe suas senhas</li>
-                        </ul>
-                    </div>
-                    <div class="protecao-item">
-                        <h3>2. Autenticação em Dois Fatores</h3>
-                        <ul>
-                            <li>Ative 2FA em todas as contas importantes</li>
-                            <li>Use apps autenticadores (Google Authenticator, Authy)</li>
-                            <li>Salve códigos de backup em local seguro</li>
-                        </ul>
-                    </div>
-                    <div class="protecao-item">
-                        <h3>3. Antivírus e Antimalware</h3>
-                        <ul>
-                            <li>Instale software de segurança confiável</li>
-                            <li>Mantenha as atualizações em dia</li>
-                            <li>Execute varreduras regularmente</li>
-                        </ul>
-                    </div>
-                    <div class="protecao-item">
-                        <h3>4. Backups Regulares</h3>
-                        <ul>
-                            <li>Faça backup de dados importantes diariamente</li>
-                            <li>Armazene cópias em local seguro</li>
-                            <li>Teste a recuperação periodicamente</li>
-                        </ul>
-                    </div>
-                    <div class="protecao-item">
-                        <h3>5. Atualizações de Sistema</h3>
-                        <ul>
-                            <li>Atualize SO, navegadores e programas</li>
-                            <li>Ative atualizações automáticas</li>
-                            <li>Pague atenção a patches de segurança</li>
-                        </ul>
-                    </div>
-                    <div class="protecao-item">
-                        <h3>6. Wi-Fi Seguro</h3>
-                        <ul>
-                            <li>Use WPA3 ou WPA2 (nunca WEP)</li>
-                            <li>Altere senha padrão do roteador</li>
-                            <li>Oculte SSID da rede</li>
-                            <li>Use VPN para conexões públicas</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Recursos -->
-        <section id="recursos" class="recursos">
-            <div class="container">
-                <h2>Recursos Úteis</h2>
-                <div class="recursos-list">
-                    <div class="recurso">
-                        <h3>📚 Guias de Segurança</h3>
-                        <p>Documentos práticos para implementar segurança na sua propriedade</p>
-                    </div>
-                    <div class="recurso">
-                        <h3>🛠️ Ferramentas Recomendadas</h3>
-                        <p>Software e serviços para proteger seus sistemas agrícolas</p>
-                    </div>
-                    <div class="recurso">
-                        <h3>📖 Blog de Segurança</h3>
-                        <p>Artigos atualizados sobre ameaças e soluções</p>
-                    </div>
-                    <div class="recurso">
-                        <h3>📞 Suporte Técnico</h3>
-                        <p>Ajuda profissional para implementar segurança</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Contato -->
-        <section id="contato" class="contato">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <form class="contato-form">
-                    <input type="text" placeholder="Seu nome" required>
-                    <input type="email" placeholder="Seu email" required>
-                    <textarea placeholder="Sua mensagem" rows="5" required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Segurança Digital no Campo. Todos os direitos reservados.</p>
-            <p>Protegendo o agronegócio brasileiro 🇧🇷</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- SEÇÃO: O PROBLEMA -->
+        <section id="problema">
+            <h2 class="section-title">O Cenário de Risco (Vulnerabilidades)</h2>
