@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cegurança digital no campo</title>
+    <title>Cibersegurança no Agro 4.0 - Diagnóstico</title>
     <style>
-        /* Configurações Gerais */
+        
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +41,7 @@
             color: #81c784;
         }
 
-        /* Hero Section */
+        
         .hero {
             background: linear-gradient(135deg, #1b3d2f 0%, #0d1f16 100%);
             color: #fff;
@@ -55,7 +55,7 @@
             font-weight: 600;
         }
 
-        /* Área do Botão de Ação */
+        
         .action-area {
             text-align: center;
             margin: 40px 0;
@@ -65,13 +65,14 @@
             background-color: #2e7d32;
             color: white;
             border: none;
-            padding: 15px 35px;
-            font-size: 18px;
+            padding: 15px 40px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
             transition: all 0.3s ease;
+            margin: 10px;
         }
 
         .btn-reveal:hover {
@@ -80,7 +81,7 @@
             box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
         }
 
-        /* Conteúdo Oculto por Padrão */
+       
         .content-wrapper {
             display: none;
             opacity: 0;
@@ -92,15 +93,32 @@
             opacity: 1;
         }
 
-        /* Seção do Problema */
-        .problema-secao {
-            padding: 20px 0 60px 0;
+       
+        .secao {
+            padding: 50px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .secao:last-child {
+            border-bottom: none;
+        }
+
+        .section-badge {
+            background-color: #2e7d32;
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .section-title {
             font-size: 28px;
             color: #1b3d2f;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -119,19 +137,19 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            align-items: center;
+            align-items: flex-start;
         }
 
-        .texto-problema {
+        .texto-principal {
             font-size: 16px;
             color: #455a64;
         }
 
-        .texto-problema p {
+        .texto-principal p {
             margin-bottom: 15px;
         }
 
-        /* Cards */
+       
         .impactos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -145,12 +163,41 @@
             padding: 20px;
             border-radius: 4px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 15px;
         }
 
         .card h4 {
             color: #00130b;
             margin-bottom: 10px;
             font-size: 18px;
+        }
+
+        
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #1b3d2f;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f8e9;
         }
 
         footer {
@@ -170,85 +217,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Agro<span>digital</span></h1>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h2>Diagnóstico Agro 4.0</h2>
-            <p>Clique no botão abaixo para analisar as vulnerabilidades críticas detectadas no setor.</p>
-            
-            <!-- Botão que controla a exibição -->
-            <div class="action-area">
-                <button class="btn-reveal" id="toggleBtn" onclick="toggleInformation()">Ver Informações do Problema</button>
-            </div>
-        </div>
-    </section>
-
    
-    <main class="container problema-secao content-wrapper" id="infoContent">
-        <h3 class="section-title">O Problema Proposto</h3>
-        
-        <div class="grid">
-            <div class="texto-problema">
-                <p>O <strong>Agro 4.0</strong> introduziu tecnologias revolucionárias como a Internet das Coisas (IoT), automação avançada e inteligência artificial no campo. No entanto, essa rápida digitalização não foi acompanhada por investimentos equivalentes em cibersegurança.</p>
-                <p>Como o setor gerencia infraestruturas críticas de abastecimento alimentar e movimenta grandes volumes financeiros, a falta de proteção adequada tornou fazendas e cooperativas <strong>alvos altamente lucrativos</strong> para criminosos virtuais.</p>
-                <p>A vulnerabilidade de sistemas conectados coloca em risco não apenas os negócios locais, mas ameaça diretamente a continuidade das safras, a segurança dos dados operacionais e a estabilidade econômica de toda a cadeia de suprimentos.</p>
-            </div>
-
-            <div class="destaque-lateral">
-                <div class="card" style="border-left-color: #e53935;">
-                    <h4>🚨 Risco Crítico</h4>
-                    <p>Infraestruturas de alimentos são consideradas segurança nacional. Um ataque digital pode paralisar cadeias de suprimentos inteiras.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="impactos">
-            <div class="card">
-                <h4>🌾 Continuidade das Safras</h4>
-                <p>Sistemas automatizados de irrigação, colheita e plantio podem ser bloqueados por ransomwares.</p>
-            </div>
-            <div class="card">
-                <h4>📊 Dados Operacionais</h4>
-                <p>Espionagem industrial e roubo de dados estratégicos sobre safras, solo e clientes.</p>
-            </div>
-            <div class="card">
-                <h4>💰 Impacto Financeiro</h4>
-                <p>Prejuízos milionários com resgates, paralisações operacionais e quebras de contratos.</p>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 AgroShield - Conscientização e Segurança Digital no Campo.</p>
-        </div>
-    </footer>
-
-    
-    <script>
-        function toggleInformation() {
-            var content = document.getElementById("infoContent");
-            var button = document.getElementById("toggleBtn");
-            
-            if (content.classList.contains("show")) {
-                content.classList.remove("show");
-                button.textContent = "Ver Informações do Problema";
-            } else {
-                content.classList.add("show");
-                button.textContent = "Ocultar Informações";
-            }
-        }
-    </script>
-
-
-
     <header>
         <div class="container">
             <div class="logo">
@@ -257,25 +226,26 @@
         </div>
     </header>
 
+    
     <section class="hero">
         <div class="container">
             <h2>Diagnóstico de Riscos Digitais</h2>
             <p>Selecione as seções abaixo para acessar a análise estruturada sobre a segurança no campo.</p>
             
             <div class="action-area">
-                <!-- Botão para controlar a Parte 1 -->
+              
                 <button class="btn-reveal" id="btnParte1" onclick="toggleSection('infoParte1', 'btnParte1', 'Ver O Problema Proposto')">Ver O Problema Proposto</button>
                 
-                <!-- Botão para controlar a Parte 2 -->
+                
                 <button class="btn-reveal" id="btnParte2" onclick="toggleSection('infoParte2', 'btnParte2', 'Ver Artefato: Efeito Cascata')">Ver Artefato: Efeito Cascata</button>
             </div>
         </div>
     </section>
 
-    <!-- CONTAINER PRINCIPAL DO CONTEÚDO -->
+    
     <main class="container">
         
-        <!-- PRIMEIRA PARTE: O PROBLEMA PROPOSTO (Oculto por padrão, controlado pelo botão 1) -->
+        
         <div class="content-wrapper" id="infoParte1">
             <section class="secao">
                 <span class="section-badge">Parte 1</span>
@@ -293,10 +263,26 @@
                         </div>
                     </div>
                 </div>
+
+            
+                <div class="impactos">
+                    <div class="card">
+                        <h4>🌾 Continuidade das Safras</h4>
+                        <p>Sistemas automatizados de irrigação, colheita e plantio podem ser bloqueados por ransomwares.</p>
+                    </div>
+                    <div class="card">
+                        <h4>📊 Dados Operacionais</h4>
+                        <p>Espionagem industrial e roubo de dados estratégicos sobre safras, solo e clientes.</p>
+                    </div>
+                    <div class="card">
+                        <h4>💰 Impacto Financeiro</h4>
+                        <p>Prejuízos milionários com resgates, paralisações operacionais e quebras de contratos.</p>
+                    </div>
+                </div>
             </section>
         </div>
 
-        <!-- SEGUNDA PARTE: ARTEFATO DIGITAL & EFEITO CASCATA (Oculto por padrão, controlado pelo botão 2) -->
+        
         <div class="content-wrapper" id="infoParte2">
             <section class="secao">
                 <span class="section-badge">Parte 2</span>
@@ -311,6 +297,9 @@
                             <h4>1. O Pequeno e Médio Produtor</h4>
                             <p>A paralisia de maquinários ou sensores por <em>ransomware</em> interrompe colheitas e plantios. Sem capital para suportar longas paralisações, o produtor enfrenta o risco direto de endividamento e falência.</p>
                         </div>
+                        <div class="card">
+                            <h4>2. Logística e Cooperativas</h4>
+
                         <div class="card">
                             <h4>2. Logística e Cooperativas</h4>
                             <p>Falhas induzidas em sensores de temperatura estragam toneladas de alimentos perecíveis. O travamento de sistemas operacionais e notas fiscais gera gargalos de escoamento e atrasa frotas inteiras.</p>
