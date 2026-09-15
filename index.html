@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSeguro - Protegendo a Tecnologia do Campo</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>AgroSeguro - Protegendo a Tecnologia do Campo — Projeto de Heberson Gustavo Golba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- ESTILOS GERAIS E PALETA DE CORES (AGRO TECH) --- */
         :root {
@@ -55,6 +55,946 @@
             margin: 0 auto 50px auto;
             font-size: 1.1rem;
         }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- CABEÇALHO (NAVIGATION) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        h1.logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        h1.logo span {
+            color: var(--secondary);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            margin-left: 30px;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(30,70,32,0.95) 0%, rgba(15,35,16,0.98) 100%), 
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?q=80&w=1920') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0eae0;
+            font-weight: 300;
+        }
+
+        /* --- SEÇÃO: O PROBLEMA (VULNERABILIDADES) --- */
+        #problema {
+            background-color: var(--white);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-left: 5px solid var(--secondary);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .impact-badge {
+            display: inline-block;
+            background-color: #fff0e6;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- SEÇÃO: ARTEFATO DIGITAL (FRAMEWORK) --- */
+        #artefato {
+            background-color: var(--accent);
+        }
+
+        .framework-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-step {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* --- SEÇÃO: SOLUÇÕES PRÁTICAS --- */
+        #solucoes {
+            background-color: var(--white);
+        }
+
+        .solucoes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .solucao-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 4px solid var(--primary-light);
+        }
+
+        .solucao-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* --- SEÇÃO: PRODUTOS E VALORES --- */
+        #produtos {
+            background-color: var(--white);
+            border-top: 1px solid #eee;
+        }
+
+        .produtos-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .produtos-vitrine {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .produto-card {
+            background: #fdfdfd;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .produto-card:hover, .produto-card.selecionado {
+            border-color: var(--primary);
+            background: #f7fbf7;
+            box-shadow: 0 5px 15px rgba(45,106,48,0.08);
+        }
+
+        .produto-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .produto-header h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .produto-card.selecionado .radio-custom {
+            border-color: var(--primary);
+            background: var(--primary);
+        }
+
+        .produto-card.selecionado .radio-custom::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+        }
+
+        .orcamento-box {
+            background: var(--accent);
+            border: 2px dashed var(--primary-light);
+            border-radius: 12px;
+            padding: 30px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .orcamento-box h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #e2ece2;
+            padding-bottom: 10px;
+        }
+
+        .select-porte {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            background-color: var(--white);
+        }
+
+        .preco-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 15px 0;
+        }
+
+        .detalhes-estimativa {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 15px;
+        }
+
+        .produtos-recomendados { margin-top:25px; padding:20px; background:#fff; border:1px solid #dce8dc; border-radius:10px; }
+        .produtos-recomendados h4 { color:var(--primary); margin-bottom:12px; font-size:1.15rem; }
+        .lista-produtos-compra { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:15px; }
+        .item-compra { background:#f8fbf8; border:1px solid #dce8dc; border-radius:8px; padding:14px; }
+        .item-compra h5 { color:var(--primary); margin-bottom:7px; font-size:1rem; }
+        .item-compra p { color:var(--gray); font-size:.9rem; margin-bottom:10px; }
+        
+        .preco-produto { font-size: 1.15rem; color: var(--primary); margin: 8px 0 12px; }
+
+.btn-comprar { display:inline-block; background:var(--secondary); color:#fff; text-decoration:none; padding:9px 12px; border-radius:6px; font-weight:600; font-size:.88rem; }
+        .aviso-produtos { color:var(--gray); font-size:.82rem; margin-top:14px; }
+
+        /* --- SEÇÃO: TERMÔMETRO DE RISCO (SIMULADOR) --- */
+        #simulador {
+            background-color: var(--accent);
+        }
+
+        .simulator-box {
+            background: var(--white);
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            background-color: var(--white);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus {
+            border-color: var(--primary-light);
+        }
+
+        .btn-calc {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-calc:hover {
+            background-color: #cc5200;
+        }
+
+        /* RESULTADO DO SIMULADOR */
+        #resultado {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .resultado-titulo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recomendacoes-lista {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .recomendacoes-lista li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Classes dinâmicas para o resultado */
+        .status-alto {
+            background-color: #fff0f1;
+            border: 2px solid var(--danger);
+            color: #800010;
+        }
+        .status-medio {
+            background-color: #fffbeb;
+            border: 2px solid var(--warning);
+            color: #7a5c00;
+        }
+        .status-baixo {
+            background-color: #f2fbf4;
+            border: 2px solid var(--success);
+            color: #1b5e20;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 850px) {
+            .produtos-container {
+                grid-template-columns: 1fr;
+            }
+            .orcamento-box {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .simulator-box {
+                padding: 20px;
+            }
+        }
+    
+        .produto-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+        .btn-link{display:inline-block;text-decoration:none;background:var(--secondary);color:#fff;padding:10px 14px;border-radius:6px;font-weight:600;font-size:.9rem}
+        .btn-link.secundario{background:var(--primary)}
+        .produto-meta{font-size:.85rem;color:var(--gray);margin-top:8px}
+        .recomendacao-plano{margin-top:18px;padding:18px;border-radius:8px;background:#eef8ef;border:1px solid #b7d8bb;color:#1e4620}
+        .recomendacao-plano a{color:var(--primary);font-weight:700}
+        .mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-bottom:20px}
+        .mini-grid label{font-weight:600;color:var(--primary);display:block;margin-bottom:7px}
+        .mini-grid select,.mini-grid input{width:100%;padding:11px;border:2px solid #e0e0e0;border-radius:6px;background:#fff}
+        @media(max-width:600px){.hero{padding:80px 0}.hero h2{font-size:1.8rem}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}nav a{margin:0}}
+
+        /* --- IMAGENS REAIS E VITRINE DE PRODUTOS --- */
+        .section-banner {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin: 0 auto 30px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        }
+        .card-image {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+        .produto-imagem {
+            width: 100%;
+            height: 175px;
+            object-fit: contain;
+            background: #f3f7f3;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .item-compra {
+            display: flex;
+            flex-direction: column;
+        }
+        .item-compra .btn-comprar {
+            margin-top: auto;
+            text-align: center;
+        }
+        .produto-tag {
+            display: inline-block;
+            font-size: .76rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: #e7f2e8;
+            border-radius: 20px;
+            padding: 5px 9px;
+            margin-bottom: 8px;
+        }
+        .guia-produtor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+            gap: 18px;
+            margin-top: 28px;
+        }
+        .guia-produtor article {
+            background: #fff;
+            border: 1px solid #e1eae1;
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .guia-produtor img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .guia-produtor h3 { color: var(--primary); margin-bottom: 7px; }
+        .guia-produtor p { color: var(--gray); font-size: .92rem; }
+        @media(max-width:600px) {
+            .section-banner { height: 170px; }
+            .produto-imagem { height: 145px; }
+        }
+
+</style>
+
+<style>
+.comparativo-seguranca{margin:40px 0;padding:28px;border-radius:22px;background:linear-gradient(135deg,#f4f8f2,#eef4f8);color:#183126}
+.comparativo-seguranca h2{text-align:center;margin-bottom:10px}
+.comparativo-seguranca .intro{text-align:center;max-width:760px;margin:0 auto 24px;color:#52635b}
+.cenarios-seguranca{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cenario-seguranca{background:#fff;border:1px solid #dce7df;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(25,55,35,.08)}
+.cenario-seguranca img{width:100%;height:170px;object-fit:cover;display:block}
+.cenario-seguranca .conteudo{padding:20px}
+.cenario-seguranca h3{margin:0 0 8px;font-size:1.2rem}
+.cenario-seguranca .nivel{display:inline-block;padding:6px 10px;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:12px}
+.nivel-baixo{background:#fee2e2;color:#991b1b}.nivel-medio{background:#fef3c7;color:#92400e}.nivel-alto{background:#dcfce7;color:#166534}
+.cenario-seguranca ul{padding-left:20px;margin:12px 0}
+.cenario-seguranca li{margin:7px 0}
+.custo-cenario{border-top:1px solid #e5ebe6;margin-top:16px;padding-top:14px;font-weight:800;color:#14532d}
+@media(max-width:850px){.cenarios-seguranca{grid-template-columns:1fr}}
+</style>
+
+
+<style>
+.experiencias-produtores{margin:42px 0;padding:28px;border-radius:22px;background:#f7faf7;border:1px solid #dce9df}
+.experiencias-produtores h2{text-align:center;color:#173d28;margin-bottom:10px}
+.experiencias-produtores .intro{text-align:center;max-width:780px;margin:0 auto 24px;color:#52645a}
+.historias-produtores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.historia-produtor{background:#fff;border:1px solid #dce7df;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(24,63,38,.07)}
+.historia-produtor img{width:100%;height:175px;object-fit:cover;display:block}
+.historia-produtor .texto{padding:19px}
+.historia-produtor h3{color:#173d28;margin:0 0 8px}
+.historia-produtor .resultado{margin-top:14px;padding:12px;border-radius:12px;background:#edf7ef;color:#245d36;font-weight:600}
+.historia-produtor small{color:#6a7b70}
+@media(max-width:850px){.historias-produtores{grid-template-columns:1fr}}
+</style>
+
+
+<style>
+.produtos-indicados-site{margin:38px 0;padding:24px;border:1px solid #d8e7dc;border-radius:20px;background:#f6faf7}
+.produtos-indicados-site h2{color:#174d2b;text-align:center;margin:0 0 8px}
+.produtos-indicados-site .subtitulo{text-align:center;color:#52665a;margin:0 auto 22px;max-width:760px}
+.produtos-indicados-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.produto-indicado-card{background:#fff;border:1px solid #dce8df;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.produto-indicado-card img{width:100%;height:145px;object-fit:cover}
+.produto-indicado-card .produto-corpo{padding:16px;display:flex;flex-direction:column;flex:1}
+.produto-indicado-card h3{color:#174d2b;font-size:1.05rem;margin:0 0 8px}
+.produto-indicado-card p{color:#52665a;font-size:.93rem;line-height:1.5}
+.produto-indicado-card ul{padding-left:18px;color:#52665a;font-size:.9rem}
+.produto-indicado-card .preco{margin-top:auto;padding-top:12px;color:#e66a00;font-size:1.12rem;font-weight:800}
+.produto-indicado-card .observacao{font-size:.78rem;color:#718078;margin-top:5px}
+.produtos-nota{margin-top:18px;text-align:center;color:#66766d;font-size:.85rem}
+@media(max-width:900px){.produtos-indicados-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.produtos-indicados-site{padding:16px}.produtos-indicados-grid{grid-template-columns:1fr}}
+</style>
+
+
+<style>
+.area-orcamento{display:none;margin:28px 0;padding:24px;border:2px solid #2d6a3f;border-radius:20px;background:#f5faf6;box-shadow:0 8px 24px rgba(25,70,40,.08)}
+.area-orcamento.visivel{display:block}
+.area-orcamento h2{color:#174d2b;margin-top:0}
+.orcamento-resumo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.orcamento-item{background:#fff;border:1px solid #dce8df;border-radius:12px;padding:14px}
+.orcamento-item strong{display:block;color:#174d2b;margin-bottom:5px}
+.orcamento-total{font-size:1.65rem;font-weight:800;color:#e66a00;margin-top:12px}
+.orcamento-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.orcamento-acoes button{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:700}
+.btn-imprimir-orcamento{background:#174d2b;color:#fff}
+.btn-fechar-orcamento{background:#e8eee9;color:#174d2b}
+@media(max-width:600px){.orcamento-resumo{grid-template-columns:1fr}.area-orcamento{padding:17px}}
+</style>
+
+
+<style id="organizacao-final-agroseguro">
+/* Organização visual geral */
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;background:#f8faf8;color:#20352a}
+main, .container, .conteudo-principal, .site-container{width:100%;max-width:1180px;margin-inline:auto;box-sizing:border-box}
+section{box-sizing:border-box}
+h1,h2,h3{line-height:1.2}
+p{line-height:1.65}
+button,a,select,input{font:inherit}
+img{max-width:100%;height:auto}
+
+/* Espaçamento e alinhamento das áreas principais */
+section[id], .secao, .section{scroll-margin-top:90px}
+.card, .plano, .produto-card, .produto-indicado-card, .cenario-seguranca, .historia-produtor{
+  box-sizing:border-box;
+  min-width:0;
+}
+.grid, .cards, .planos, .produtos-grid, .produtos-indicados-grid{
+  align-items:stretch;
+}
+button{transition:transform .15s ease,box-shadow .15s ease}
+button:hover{transform:translateY(-1px)}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{
+  outline:3px solid #f28c28;
+  outline-offset:3px;
+}
+
+/* Cabeçalho e navegação */
+header, nav{box-sizing:border-box}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
+nav a{white-space:normal;text-align:center}
+
+/* Formulários e simulador */
+select,input,textarea{max-width:100%;box-sizing:border-box}
+.simulador, .simulador-investimento, #simuladorInvestimento{
+  box-sizing:border-box;
+  overflow:hidden;
+}
+#areaOrcamento{scroll-margin-top:90px}
+#areaOrcamento .orcamento-resumo{align-items:stretch}
+#areaOrcamento .orcamento-item{min-width:0;overflow-wrap:anywhere}
+
+/* Áreas com muitos cartões */
+.produtos-indicados-grid,.historias-produtores,.cenarios-seguranca{
+  grid-auto-rows:1fr;
+}
+.produto-indicado-card,.historia-produtor,.cenario-seguranca{
+  height:100%;
+}
+.produto-indicado-card p,.historia-produtor p,.cenario-seguranca p{
+  overflow-wrap:anywhere;
+}
+
+/* Responsividade */
+@media(max-width:900px){
+  main,.container,.conteudo-principal,.site-container{padding-inline:16px}
+}
+@media(max-width:600px){
+  body{font-size:15px}
+  h1{font-size:clamp(1.8rem,7vw,2.5rem)}
+  h2{font-size:clamp(1.45rem,6vw,2rem)}
+  h3{font-size:1.08rem}
+  section{margin-top:24px;margin-bottom:24px}
+  .orcamento-total{font-size:1.35rem!important}
+  .orcamento-acoes button{width:100%}
+}
+
+/* Impressão limpa do orçamento */
+@media print{
+  body{background:#fff!important;color:#111!important}
+  header,nav,footer,.orcamento-acoes,button,a[href]{display:none!important}
+  #areaOrcamento{display:block!important;border:1px solid #999!important;box-shadow:none!important}
+}
+</style>
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Agro<span>Seguro</span></h1>
+            <nav>
+                <a href="#problema">Vulnerabilidades</a>
+                <a href="#artefato">Artefato Digital</a>
+                <a href="#solucoes">Soluções</a>
+                <a href="#produtos">Produtos e Custos</a>
+                <a href="#simulador">Termômetro de Risco</a>
+            </nav>
+        </div>
+    </header>
+
+<<<<<<< HEAD
+    <section class="hero">
+        <div class="container">
+            <h2>Protegendo a tecnologia que alimenta o mundo</h2>
+            <p>A rápida digitalização do agronegócio (Agro 4.0) trouxe sensores de IoT, automação e inteligência artificial para o campo. Proteja suas safras de dados contra vulnerabilidades cibernéticas críticas.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="problema">
+            <h2 class="section-title">O Cenário de Risco (Vulnerabilidades)</h2>
+            <p class="section-subtitle">Entenda como as ameaças digitais modernas afetam diretamente a sua produtividade e o faturamento da fazenda.</p>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>1. Sequestro de Dados (Ransomware)</h3>
+                    <p>Invasores bloqueiam os computadores do escritório rural ou sistemas de logística. Sem acesso aos dados históricos, relatórios de pesagem ou mapas de colheita, a operação para totalmente até o pagamento de um resgate.</p>
+                    <span class="impact-badge">Risco: Parada Total da Operação</span>
+                </div>
+                
+                <div class="card">
+                    <h3>2. Ataques a Sensores IoT</h3>
+                    <p>Sensores de umidade do solo, estações meteorológicas ou pivôs de irrigação conectados sofrem invasões. Dados adulterados enganam o sistema automático, resultando em falta ou excesso de água, prejudicando severamente a safra.</p>
+                    <span class="impact-badge">Risco: Perda Física de Culturas</span>
+                </div>
+                
+                <div class="card">
+                    <h3>3. Clonagem de Sinal (Spoofing de GPS)</h3>
+                    <p>Cibercriminosos interceptam e alteram o sinal de localização enviado para tratores, colheitadeiras e drones autônomos. As máquinas saem da rota correta, causando falhas de plantio ou colisões destrutivas no campo.</p>
+                    <span class="impact-badge">Risco: Danos a Maquinários Caros</span>
+                </div>
+            </div>
+        </section>
+=======
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
+
+<<<<<<< HEAD
+        <section id="artefato">
+            <h2 class="section-title">O Artefato Digital de Proteção</h2>
+            <p class="section-subtitle">Nosso modelo de proteção integrado funciona como uma "porteira digital", blindando sua infraestrutura em três camadas estratégicas.</p>
+            
+            <div class="framework-timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Camada de Borda (Equipamentos)</h3>
+                        <p>Focada diretamente nos tratores, sensores e atuadores de campo. Implementa chaves de criptografia exclusivas para garantir que o maquinário aceite comandos apenas do proprietário legítimo.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Camada de Rede (Conectividade)</h3>
+                        <p>Segmenta o sinal de internet da fazenda. Cria canais de comunicação fechados e isolados para as máquinas, impedindo que acessos de visitantes na rede Wi-Fi principal cheguem aos sistemas de produção.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Camada de Nuvem (Inteligência e Histórico)</h3>
+                        <p>Onde ficam armazenados os relatórios de safra e faturamento. Monitora o comportamento dos acessos em tempo real e emite alertas automáticos no celular do produtor se notar atividades estranhas fora do horário comercial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+=======
+        body {
+            background-color: #fafafa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
+
+<<<<<<< HEAD
+        <section id="solucoes">
+            <h2 class="section-title">Soluções e Remediações Práticas</h2>
+            <p class="section-subtitle">Medidas imediatas recomendadas para mitigar falhas e criar uma cultura de segurança robusta no seu negócio rural.</p>
+            
+
+            <img class="section-banner" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1600&auto=format&fit=crop" alt="Máquinas agrícolas trabalhando em uma lavoura">
+
+            <div class="guia-produtor">
+                <article>
+                    <img src="https://images.unsplash.com/photo-1530267981375-f0de937f5f13?q=80&w=900&auto=format&fit=crop" alt="Trator agrícola em uma propriedade rural">
+                    <h3>Proteja seus maquinários</h3>
+                    <p>Use redes separadas, senhas fortes e atualizações para reduzir riscos em tratores, colheitadeiras e sistemas de telemetria.</p>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c8f3c6?q=80&w=900&auto=format&fit=crop" alt="Equipamentos e tecnologia de monitoramento">
+                    <h3>Monitore os equipamentos</h3>
+                    <p>Faça inventário dos sensores, câmeras, antenas e dispositivos conectados antes de instalar novas soluções.</p>
+                </article>
+                <article>
+                    <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=900&auto=format&fit=crop" alt="Lavoura agrícola saudável">
+                    <h3>Evite prejuízos na produção</h3>
+                    <p>Combine cópias de segurança, controle de acesso e treinamento da equipe para manter a operação funcionando.</p>
+                </article>
+            </div>
+
+            <div class="solucoes-list">
+                <div class="solucao-item">
+                    <h4>Auditoria de Firmware</h4>
+                    <p>Verificação e atualização constante de todos os roteadores, antenas e firmwares de sensores para eliminar vulnerabilidades de fábrica.</p>
+                </div>
+                <div class="solucao-item">
+                    <h4>Isolamento de Redes</h4>
+                    <p>Criação de uma rede Wi-Fi exclusiva para funcionários e visitantes, totalmente separada da rede onde rodam os sistemas agropecuários.</p>
+                </div>
+                <div class="solucao-item">
+                    <h4>Treinamento Humano</h4>
+                    <p>Capacitação prática para que operadores e gerentes identifiquem tentativas de golpes por e-mail (phishing) ou pen drives contaminados.</p>
+                </div>
+            </div>
+        </section>
+=======
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
+
+<<<<<<< HEAD
+        <section id="produtos">
+            <h2 class="section-title">Nossos Planos de Blindagem Digital</h2>
+            <p class="section-subtitle">Escolha o nível de proteção ideal para o momento do seu negócio e simule o investimento com base no tamanho da sua propriedade.</p>
+            
+            <div class="produtos-container">
+                <div class="produtos-vitrine">
+                    <div class="produto-card selecionado" id="p1" onclick="selecionarProduto('p1', 1200)">
+                        <div class="produto-header">
+                            <h3>Plano 1: Porteira Digital Isolada</h3>
+                            <div class="radio-custom"></div>
+                        </div>
+                        <p>Configuração, criptografia e isolamento das redes Wi-Fi da fazenda. Separa o maquinário dos acessos comuns.</p>
+                    </div>
+
+                    <div class="produto-card" id="p2" onclick="selecionarProduto('p2', 2500)">
+                        <div class="produto-header">
+                            <h3>Plano 2: Escudo IoT e Maquinário</h3>
+                            <div class="radio-custom"></div>
+                        </div>
+                        <p>Criptografia na borda para antenas de GPS de tratores, telemetria e blindagem ativa em até 15 sensores de campo.</p>
+                    </div>
+
+                    <div class="produto-card" id="p3" onclick="selecionarProduto('p3', 4800)">
+                        <div class="produto-header">
+                            <h3>Plano 3: AgroSeguro Total 360°</h3>
+                            <div class="radio-custom"></div>
+                        </div>
+                        <p>Auditoria completa, monitoramento em nuvem contra ransomware, treinamento anti-phishing para funcionários e suporte emergencial.</p>
+                    </div>
+                </div>
+
+                <div class="orcamento-box">
+                    <h3>Simulador de Investimento</h3>
+                    <label style="font-weight: 600; display:block; margin-bottom: 8px;">Qual o tamanho da sua propriedade?</label>
+                    <select id="portePropriedade" class="select-porte" onchange="atualizarOrcamento()">
+                        <option value="1">Pequena Propriedade (Até 100 hectares) / Sem multiplicador</option>
+                        <option value="1.5">Média Propriedade (101 a 500 hectares) / +50% de infraestrutura</option>
+                        <option value="2.2">Grande Propriedade (Acima de 500 hectares) / Alta complexidade</option>
+                    </select>
+
+                    <p style="font-weight: 500; color: var(--primary);">Investimento Estimado:</p>
+                    <div class="preco-display" id="precoEstimado">R$ 1.200,00</div>
+                    
+                    <p class="detalhes-estimativa" id="detalheTempo">⏱️ Tempo estimado de implementação: <b>5 dias úteis</b>.</p>
+                    <button class="btn-calc" style="margin-top: 20px; background-color: var(--primary);" onclick="mostrarProdutosNecessarios(); mostrarProdutosRecomendados();">Ver produtos necessários e solicitar orçamento</button>
+                    <div id="produtosNecessarios" class="recomendacao-plano" style="display:none; margin-top:20px;"></div>
+                </div>
+            </div>
+
+            <div id="produtosRecomendados" class="produtos-recomendados" style="display:none;">
+                <h4>🛒 Produtos recomendados para a sua blindagem</h4>
+                <p id="textoRecomendacaoProdutos"></p>
+                <div id="listaProdutosCompra" class="lista-produtos-compra"></div>
+                <p class="aviso-produtos">Os valores e a disponibilidade podem mudar. Confira as condições diretamente no site de venda antes de comprar.</p>
+            </div>
+        </section>
+=======
+        h2.section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
+
+<<<<<<< HEAD
+        <section id="simulador">
+            <h2 class="section-title">Termômetro de Risco Digital</h2>
+            <p class="section-subtitle">Descubra em menos de um minuto o nível de vulnerabilidade da sua propriedade rural e receba um diagnóstico direcionado.</p>
+            
+            <div class="simulator-box">
+                <div class="mini-grid">
+                    <div><label for="area">Tamanho da propriedade</label><select id="area"><option value="pequena">Até 100 hectares</option><option value="media">101 a 500 hectares</option><option value="grande">Acima de 500 hectares</option></select></div>
+                    <div><label for="equipamentos">Equipamentos conectados</label><select id="equipamentos"><option value="poucos">Até 5 equipamentos</option><option value="medios">6 a 15 equipamentos</option><option value="muitos">Mais de 15 equipamentos</option></select></div>
+                </div>
+                <div class="form-group">
+                    <label for="q1">1. Como funciona a rede Wi-Fi da fazenda?</label>
+                    <select id="q1">
+                        <option value="alto">É única: visitantes, computadores do escritório e máquinas usam a mesma senha</option>
+                        <option value="medio">Possui senhas diferentes, mas todas as antenas se conectam no mesmo modem principal</option>
+                        <option value="baixo">É totalmente segmentada: existe uma rede isolada protegida por firewall para a produção</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q2">2. Com que frequência os softwares agrícolas e roteadores são atualizados?</label>
+                    <select id="q2">
+                        <option value="alto">Raramente ou nunca atualizamos após a instalação inicial</option>
+                        <option value="medio">Atualizamos apenas quando o sistema apresenta alguma falha ou travamento</option>
+                        <option value="baixo">Temos uma rotina mensal ou automática de checagem e instalação de atualizações</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="q3">3. Qual é o nível de controle de acessos da equipe?</label>
+                    <select id="q3">
+                        <option value="alto">Todos usam computadores compartilhados com a mesma senha e inserem pen drives livremente</option>
+                        <option value="medio">Cada um tem seu usuário, mas não usamos autenticação em duas etapas (2FA) nos e-mails e sistemas</option>
+                        <option value="baixo">Cada funcionário possui senhas exclusivas, treinamentos regulares e acessos restritos por função</option>
+                    </select>
+                </div>
+
+                <button class="btn-calc" onclick="calcularRisco()">Analisar Segurança da Fazenda</button>
+
+                <div id="resultado">
+                    <div class="resultado-titulo" id="res-titulo"></div>
+                    <p id="res-descricao"></p>
+                    <div id="res-recomenda"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+=======
+        p.section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
 
         section {
             padding: 80px 0;
@@ -376,3 +1316,401 @@
     <!-- CABEÇALHO -->
     <header>
         <div class="container">
+<<<<<<< HEAD
+            <p>&copy; 2026 AgroSeguro Proteção Digital do Agronegócio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+=======
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
+
+<<<<<<< HEAD
+    <script>
+        // Dados de controle dos produtos
+        let precoBaseSelecionado = 1200;
+        let idSelecionado = 'p1';
+
+        function selecionarProduto(id, precoBase) {
+            document.querySelectorAll('.produto-card').forEach(card => {
+                card.classList.remove('selecionado');
+            });
+            
+            document.getElementById(id).classList.add('selecionado');
+            
+            precoBaseSelecionado = precoBase;
+            idSelecionado = id;
+            
+            atualizarOrcamento();
+        }
+
+        function atualizarOrcamento() {
+            const multiplicador = parseFloat(document.getElementById('portePropriedade').value);
+            const precoFinal = precoBaseSelecionado * multiplicador;
+            
+            document.getElementById('precoEstimado').innerText = precoFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
+            let dias = 5;
+            if (idSelecionado === 'p2') dias = 8;
+            if (idSelecionado === 'p3') dias = 15;
+            if (multiplicador > 1) dias = Math.ceil(dias * multiplicador * 0.8);
+
+            document.getElementById('detalheTempo').innerHTML = `⏱️ Tempo estimado de implementação: <b>${dias} dias úteis</b>.`;
+        }
+
+
+        function mostrarProdutosNecessarios() {
+            const produtos = {
+                p1: {
+                    nome: 'Porteira Digital Isolada',
+                    itens: ['Roteador/firewall empresarial', 'Access points para separar as redes', 'Switch gerenciável com VLAN', 'Cabos de rede e conectores', 'Configuração de senhas fortes e rede de convidados']
+                },
+                p2: {
+                    nome: 'Escudo IoT e Maquinário',
+                    itens: ['Todos os itens do Plano 1', 'Firewall ou gateway para dispositivos IoT', 'Switch gerenciável com segmentação', 'Proteção e configuração de antenas de telemetria/GPS', 'Inventário e atualização dos sensores', 'Monitoramento dos dispositivos conectados']
+                },
+                p3: {
+                    nome: 'AgroSeguro Total 360°',
+                    itens: ['Todos os itens dos Planos 1 e 2', 'Servidor ou serviço de backup em nuvem', 'Sistema de monitoramento e alertas', 'Proteção antimalware/EDR para computadores', 'Autenticação em duas etapas (2FA)', 'Treinamento da equipe contra phishing', 'Plano de resposta e recuperação de incidentes']
+                }
+            };
+            const selecionado = produtos[idSelecionado];
+            const area = document.getElementById('portePropriedade').selectedOptions[0].text;
+            const div = document.getElementById('produtosNecessarios');
+            div.style.display = 'block';
+            div.innerHTML = `
+                <h4 style="margin-bottom:10px; color:var(--primary);">Produtos e serviços indicados para o ${selecionado.nome}</h4>
+                <p style="margin-bottom:10px;"><strong>Perfil selecionado:</strong> ${area}</p>
+                <ul class="recomendacoes-lista">${selecionado.itens.map(item => `<li>${item}</li>`).join('')}</ul>
+                <p style="margin-top:12px; font-size:.9rem;">A lista é uma orientação inicial. A quantidade e os modelos devem ser definidos após uma avaliação técnica da fazenda.</p>
+                `;
+            div.scrollIntoView({behavior:'smooth', block:'nearest'});
+        }
+
+        function mostrarProdutosRecomendados() {
+            const produtos = {
+                p1: {
+                    titulo:'Plano 1 — Porteira Digital Isolada',
+                    descricao:'Itens para organizar a conectividade da sede, separar redes e proteger os acessos básicos da fazenda.',
+                    itens:[
+                        {nome:'Roteador industrial com firewall', tag:'Rede segura', imagem:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Equipamento para controlar conexões, criar VPN e separar os acessos da propriedade.', link:'https://www.google.com/search?q=roteador+industrial+firewall+agro'},
+                        {nome:'Switch gerenciável com VLAN', tag:'Segmentação', imagem:'https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Ajuda a separar a rede administrativa da rede usada pelos equipamentos agrícolas.', link:'https://www.google.com/search?q=switch+gerenciavel+VLAN'},
+                        {nome:'Ponto de acesso Wi-Fi externo', tag:'Cobertura', imagem:'https://images.unsplash.com/photo-1606904825846-647eb07f5be2?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Amplia a conectividade em áreas externas, galpões e locais de trabalho.', link:'https://www.google.com/search?q=access+point+outdoor+agricola'}
+                    ]
+                },
+                p2: {
+                    titulo:'Plano 2 — Escudo IoT e Maquinário',
+                    descricao:'Itens para propriedades com sensores, telemetria, GPS, pivôs e outros equipamentos conectados.',
+                    itens:[
+                        {nome:'Gateway IoT industrial', tag:'Sensores', imagem:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Centraliza e controla a comunicação de dispositivos IoT, conforme a compatibilidade do sistema.', link:'https://www.google.com/search?q=gateway+IoT+industrial'},
+                        {nome:'Antena ou roteador 4G/5G rural', tag:'Conectividade', imagem:'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Pode ajudar a manter a conexão em locais rurais, dependendo da cobertura disponível.', link:'https://www.google.com/search?q=roteador+4G+5G+rural+industrial'},
+                        {nome:'Sensor de umidade do solo', tag:'Monitoramento', imagem:'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Permite acompanhar condições do solo e integrar dados a sistemas agrícolas compatíveis.', link:'https://www.google.com/search?q=sensor+umidade+solo+IoT+agricultura'}
+                    ]
+                },
+                p3: {
+                    titulo:'Plano 3 — AgroSeguro Total 360°',
+                    descricao:'Itens para uma proteção mais ampla, com conectividade, cópias de segurança e monitoramento da infraestrutura.',
+                    itens:[
+                        {nome:'Sistema de backup em nuvem', tag:'Dados', imagem:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Ajuda a preservar documentos, mapas, relatórios e informações importantes da operação.', link:'https://www.google.com/search?q=backup+em+nuvem+empresas'},
+                        {nome:'Firewall empresarial', tag:'Proteção', imagem:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Controla o tráfego da rede e pode oferecer recursos adicionais de segurança.', link:'https://www.google.com/search?q=firewall+empresarial'},
+                        {nome:'Câmera de monitoramento rural', tag:'Vigilância', imagem:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Auxilia no acompanhamento de portões, galpões, sede e áreas estratégicas.', link:'https://www.google.com/search?q=camera+monitoramento+rural+solar'},
+                        {nome:'Sistema de proteção para computadores', tag:'Computadores', imagem:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=900&auto=format&fit=crop', preco:'Consultar preço', descricao:'Solução de proteção para os computadores e sistemas administrativos da propriedade.', link:'https://www.google.com/search?q=prote%C3%A7%C3%A3o+endpoint+empresarial'}
+                    ]
+                }
+            };
+
+            const plano = produtos[idSelecionado] || produtos.p1;
+            document.getElementById('textoRecomendacaoProdutos').innerHTML =
+                `<strong>${plano.titulo}</strong><br>${plano.descricao}`;
+
+            document.getElementById('listaProdutosCompra').innerHTML = plano.itens.map(item => `
+                <div class="item-compra">
+                    <img class="produto-imagem" src="${item.imagem}" alt="${item.nome}">
+                    <span class="produto-tag">${item.tag}</span>
+                    <h5>${item.nome}</h5>
+                    <p>${item.descricao}</p>
+                    <div class="preco-produto"><strong>${item.preco}</strong></div>
+                    <a class="btn-comprar" href="${item.link}" target="_blank" rel="noopener noreferrer">Pesquisar produto ↗</a>
+                </div>
+            `).join('');
+
+            const area = document.getElementById('produtosRecomendados');
+            area.style.display = 'block';
+            area.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+
+        function calcularRisco() {
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+            const area = document.getElementById('area').value;
+            const equipamentos = document.getElementById('equipamentos').value;
+            const valores = [q1,q2,q3];
+            const alto = valores.filter(v => v === 'alto').length;
+            const baixo = valores.filter(v => v === 'baixo').length;
+            let plano = 'p1', nome = 'Plano 1: Porteira Digital Isolada', motivo = 'Comece pela organização da rede, separando visitantes, escritório e sistemas de produção.';
+            if (equipamentos !== 'poucos' || area === 'media') { plano='p2'; nome='Plano 2: Escudo IoT e Maquinário'; motivo='Sua propriedade possui uma estrutura que pode se beneficiar de proteção para sensores, telemetria e máquinas conectadas.'; }
+            if (equipamentos === 'muitos' || area === 'grande' || alto >= 2) { plano='p3'; nome='Plano 3: AgroSeguro Total 360°'; motivo='O porte, a quantidade de equipamentos ou o nível de risco indicado apontam para uma proteção mais completa e monitoramento contínuo.'; }
+            const links = {p1:'agroshield.html',p2:'agroshield.html',p3:'agroshield.html'};
+            const divResultado = document.getElementById('resultado');
+            divResultado.className = baixo >= 2 && alto === 0 ? 'status-baixo' : alto >= 2 ? 'status-alto' : 'status-medio';
+            divResultado.style.display = 'block';
+            document.getElementById('res-titulo').innerHTML = alto >= 2 ? '🚨 Nível de Risco: ALTO' : baixo >= 2 ? '🛡️ Nível de Risco: BAIXO' : '⚠️ Nível de Risco: MÉDIO';
+            document.getElementById('res-descricao').innerHTML = 'Com base nas respostas, o sistema identificou o seguinte caminho de proteção. A recomendação é orientativa e deve ser validada por um profissional.';
+            document.getElementById('res-recomenda').innerHTML = `<div class="recomendacao-plano"><strong>Plano recomendado: ${nome}</strong><p>${motivo}</p><a href="${links[plano]}" target="_blank" rel="noopener">Solicitar orçamento deste plano</a> · <a href="#produtos">Comparar planos</a></div>`;
+            divResultado.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+    </script>
+
+<div class="autor-projeto" style="text-align:center;margin:24px 0 8px;color:#587064;font-size:.9rem;">
+  Projeto desenvolvido por <strong>Heberson Gustavo Golba</strong>
+</div>
+
+
+<section class="experiencias-produtores" id="experienciasProdutores">
+  <h2>Experiências de propriedades protegidas</h2>
+  <p class="intro">
+    Veja exemplos ilustrativos de como as soluções propostas pelo AgroSeguro podem ajudar
+    diferentes propriedades rurais. Os relatos abaixo são demonstrações fictícias para explicar
+    os benefícios e não representam depoimentos reais de clientes.
+  </p>
+
+  <div class="historias-produtores">
+    <article class="historia-produtor">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Área rural de produção agrícola">
+      <div class="texto">
+        <h3>Propriedade de grãos</h3>
+        <small>Proteções: firewall, rede segmentada e backup.</small>
+        <p>
+          A propriedade passou a separar os equipamentos conectados e manter cópias de segurança
+          dos documentos de produção e dos registros administrativos.
+        </p>
+        <div class="resultado">Como ajudou: menor risco de perda de dados e mais controle da rede.</div>
+      </div>
+    </article>
+
+    <article class="historia-produtor">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80" alt="Lavoura com cultivo em linhas">
+      <div class="texto">
+        <h3>Propriedade de hortaliças</h3>
+        <small>Proteções: sensores, alertas e monitoramento remoto.</small>
+        <p>
+          Com sensores e alertas, o produtor consegue acompanhar condições do solo e identificar
+          situações que exigem atenção antes que o problema aumente.
+        </p>
+        <div class="resultado">Como ajudou: decisões mais rápidas e acompanhamento da produção à distância.</div>
+      </div>
+    </article>
+
+    <article class="historia-produtor">
+      <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=900&q=80" alt="Máquinas e estrutura de uma propriedade rural">
+      <div class="texto">
+        <h3>Propriedade com maquinários</h3>
+        <small>Proteções: controle de acesso, câmeras e proteção dos dispositivos.</small>
+        <p>
+          A propriedade organizou os acessos aos equipamentos e ampliou a visibilidade sobre
+          áreas importantes, computadores e dispositivos utilizados no dia a dia.
+        </p>
+        <div class="resultado">Como ajudou: mais rastreabilidade, prevenção e segurança operacional.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<section class="produtos-indicados-site" id="produtosIndicados">
+  <h2>Produtos indicados para sua propriedade</h2>
+  <p class="subtitulo">
+    Com base nas proteções propostas pelo AgroSeguro, estes são exemplos de equipamentos
+    que podem ser necessários para reforçar a segurança da sua propriedade rural.
+  </p>
+
+  <div class="produtos-indicados-grid">
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80" alt="Câmera de segurança para monitoramento">
+      <div class="produto-corpo">
+        <h3>Câmera de segurança IP</h3>
+        <p>Ajuda a acompanhar áreas importantes, entradas, galpões e equipamentos.</p>
+        <ul><li>Monitoramento remoto</li><li>Visão noturna, conforme o modelo</li><li>Integração com alertas</li></ul>
+        <div class="preco">Estimativa: R$ 899,00</div>
+        <div class="observacao">Valor ilustrativo por unidade.</div>
+      </div>
+    </article>
+
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&w=900&q=80" alt="Roteador e antena para conexão rural">
+      <div class="produto-corpo">
+        <h3>Roteador e antena 4G/5G</h3>
+        <p>Melhora a conectividade entre sensores, câmeras e sistemas da propriedade.</p>
+        <ul><li>Conexão para áreas rurais</li><li>Maior alcance, conforme instalação</li><li>Suporte a dispositivos conectados</li></ul>
+        <div class="preco">Estimativa: R$ 1.299,00</div>
+        <div class="observacao">Valor ilustrativo por kit.</div>
+      </div>
+    </article>
+
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80" alt="Equipamento de GPS para máquinas agrícolas">
+      <div class="produto-corpo">
+        <h3>GPS para tratores e máquinas</h3>
+        <p>Contribui para localizar máquinas e acompanhar deslocamentos e operações.</p>
+        <ul><li>Rastreamento</li><li>Histórico de rotas</li><li>Alertas de movimentação</li></ul>
+        <div class="preco">Estimativa: R$ 2.499,00</div>
+        <div class="observacao">Valor ilustrativo por unidade.</div>
+      </div>
+    </article>
+
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" alt="Sistema de energia solar para equipamentos">
+      <div class="produto-corpo">
+        <h3>Kit de energia solar</h3>
+        <p>Oferece energia para pontos remotos, sensores e equipamentos compatíveis.</p>
+        <ul><li>Uso em áreas afastadas</li><li>Autonomia conforme o dimensionamento</li><li>Instalação especializada</li></ul>
+        <div class="preco">Estimativa: R$ 1.799,00</div>
+        <div class="observacao">Valor ilustrativo por kit básico.</div>
+      </div>
+    </article>
+
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80" alt="Drone utilizado em atividades agrícolas">
+      <div class="produto-corpo">
+        <h3>Drone agrícola</h3>
+        <p>Pode apoiar inspeções, identificação de áreas problemáticas e acompanhamento da lavoura.</p>
+        <ul><li>Inspeção de áreas</li><li>Registro de imagens</li><li>Apoio ao planejamento</li></ul>
+        <div class="preco">Estimativa: R$ 18.900,00</div>
+        <div class="observacao">Valor ilustrativo; depende da finalidade e do modelo.</div>
+      </div>
+    </article>
+
+    <article class="produto-indicado-card">
+      <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80" alt="Alarme e sensores de segurança">
+      <div class="produto-corpo">
+        <h3>Alarme inteligente e sensores</h3>
+        <p>Ajuda a detectar movimentações, fumaça, temperatura e outras ocorrências.</p>
+        <ul><li>Notificações no celular</li><li>Sensores de ambiente</li><li>Alertas de acesso</li></ul>
+        <div class="preco">Estimativa: R$ 1.499,00</div>
+        <div class="observacao">Valor ilustrativo por kit.</div>
+      </div>
+    </article>
+  </div>
+
+  <p class="produtos-nota">
+    Os produtos e preços são exemplos para planejamento. A indicação final deve considerar
+    o tamanho da propriedade, o plano escolhido e uma avaliação técnica.
+  </p>
+</section>
+
+
+<section class="area-orcamento" id="areaOrcamento" aria-live="polite">
+  <h2>Orçamento estimado da sua propriedade</h2>
+  <p>
+    Confira abaixo uma simulação com base no plano e no tamanho da propriedade selecionados.
+    Os valores são estimativos e podem ser ajustados após uma avaliação técnica.
+  </p>
+
+  <div class="orcamento-resumo">
+    <div class="orcamento-item">
+      <strong>Plano escolhido</strong>
+      <span id="orcamentoPlano">Plano selecionado</span>
+    </div>
+    <div class="orcamento-item">
+      <strong>Tamanho da propriedade</strong>
+      <span id="orcamentoTamanho">Não informado</span>
+    </div>
+    <div class="orcamento-item">
+      <strong>Equipamentos indicados</strong>
+      <span id="orcamentoProdutos">Produtos conforme o plano escolhido</span>
+    </div>
+    <div class="orcamento-item">
+      <strong>Prazo estimado</strong>
+      <span id="orcamentoPrazo">A confirmar</span>
+    </div>
+  </div>
+
+  <div class="orcamento-total">
+    Total estimado: <span id="orcamentoValor">R$ 0,00</span>
+  </div>
+  <p><small>Este orçamento é apenas uma previsão inicial. O preço final depende dos equipamentos, da instalação e das condições da propriedade.</small></p>
+
+  <div class="orcamento-acoes">
+    <button class="btn-imprimir-orcamento" type="button" onclick="window.print()">Imprimir / salvar orçamento</button>
+    <button class="btn-fechar-orcamento" type="button" onclick="document.getElementById('areaOrcamento').classList.remove('visivel')">Fechar orçamento</button>
+  </div>
+</section>
+
+
+<script>
+(function(){
+  function moeda(valor){
+    return Number(valor || 0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+  }
+
+  window.mostrarAreaOrcamento = function(){
+    var area = document.getElementById('areaOrcamento');
+    if(!area) return;
+
+    var plano = 'Plano selecionado';
+    var tamanho = 'Não informado';
+    var valor = 0;
+    var prazo = 'A confirmar';
+    var produtos = 'Equipamentos indicados conforme o plano';
+
+    var selecionado = document.querySelector('.plano.selecionado, .plano.active, [data-plano].selecionado, [data-plano].active');
+    if(selecionado){
+      var titulo = selecionado.querySelector('h3,h2,.plano-titulo');
+      if(titulo) plano = titulo.textContent.trim();
+    }
+
+    var radio = document.querySelector('input[name="plano"]:checked');
+    if(radio){
+      plano = radio.value || plano;
+    }
+
+    var select = document.querySelector('#tamanhoPropriedade, #tamanho, select[name*="tamanho" i], select[id*="tamanho" i]');
+    if(select && select.options.length){
+      tamanho = select.options[select.selectedIndex].textContent.trim();
+    }
+
+    var valorEl = document.querySelector('#investimentoEstimado, #valorInvestimento, .valor-investimento, .investimento-valor');
+    if(valorEl){
+      var texto = valorEl.textContent.replace(/[^0-9,.-]/g,'').replace(/\./g,'').replace(',','.');
+      var convertido = parseFloat(texto);
+      if(!isNaN(convertido)) valor = convertido;
+    }
+
+    var prazoEl = document.querySelector('#tempoImplementacao, .tempo-implementacao');
+    if(prazoEl) prazo = prazoEl.textContent.trim();
+
+    var produtosEl = document.querySelector('#produtosRecomendados, #produtosIndicados');
+    if(produtosEl){
+      var cards = produtosEl.querySelectorAll('article, .produto-card, .produto-indicado-card');
+      if(cards.length) produtos = cards.length + ' equipamentos/soluções apresentados';
+    }
+
+    document.getElementById('orcamentoPlano').textContent = plano;
+    document.getElementById('orcamentoTamanho').textContent = tamanho;
+    document.getElementById('orcamentoValor').textContent = moeda(valor);
+    document.getElementById('orcamentoPrazo').textContent = prazo;
+    document.getElementById('orcamentoProdutos').textContent = produtos;
+    area.classList.add('visivel');
+    area.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+
+  document.addEventListener('click', function(event){
+    var alvo = event.target.closest('button, a');
+    if(!alvo) return;
+    var texto = (alvo.textContent || '').toLowerCase();
+    if(texto.includes('solicitar orçamento') || texto.includes('solicitar orcamento')){
+      event.preventDefault();
+      window.mostrarAreaOrcamento();
+    }
+  });
+})();
+</script>
+
+
+<div class="status-organizacao-agroseguro" style="max-width:1180px;margin:18px auto 28px;padding:12px 16px;border-radius:12px;background:#eaf5ed;border:1px solid #cfe4d4;color:#245d36;text-align:center;font-size:.92rem;">
+  <strong>AgroSeguro</strong> — navegação, planos, simulador, produtos indicados e orçamento organizados em uma única página.
+</div>
+
+</body>
+</html>
+=======
+>>>>>>> 7420389d37219ed7706d964cfeffe28bca3ca425
