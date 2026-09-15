@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroSeguro - Protegendo a Tecnologia do Campo — Projeto de Heberson Gustavo Golba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-       
+        /* --- ESTILOS GERAIS E PALETA DE CORES (AGRO TECH) --- */
         :root {
-            --primary: #1e4620;        
-            --primary-light: #2d6a30;  
-            --secondary: #e65c00;     
-            --accent: #f4f9f4;         
-            --dark: #212529;          
-            --gray: #6c757d;       
+            --primary: #1e4620;        /* Verde Folha Escuro */
+            --primary-light: #2d6a30;  /* Verde Intermediário */
+            --secondary: #e65c00;      /* Laranja Alerta/Inovação */
+            --accent: #f4f9f4;         /* Fundo Verde Bem Claro */
+            --dark: #212529;           /* Texto Escuro */
+            --gray: #6c757d;           /* Texto Secundário */
             --white: #ffffff;
-            --danger: #d90429;         
-            --warning: #ffb703;        
-            --success: #2b9348;
+            --danger: #d90429;         /* Vermelho Alerta Máximo */
+            --warning: #ffb703;        /* Amarelo Atenção */
+            --success: #2b9348;        /* Verde Seguro */
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
 
         body {
             background-color: #fafafa;
@@ -54,7 +60,7 @@
             padding: 80px 0;
         }
 
-        
+        /* --- CABEÇALHO (NAVIGATION) --- */
         header {
             background-color: var(--white);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -93,7 +99,7 @@
             color: var(--secondary);
         }
 
-        
+        /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(135deg, rgba(30,70,32,0.95) 0%, rgba(15,35,16,0.98) 100%), 
                         url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?q=80&w=1920') no-repeat center center/cover;
@@ -117,7 +123,7 @@
             font-weight: 300;
         }
 
-        
+        /* --- SEÇÃO: O PROBLEMA (VULNERABILIDADES) --- */
         #problema {
             background-color: var(--white);
         }
@@ -164,7 +170,7 @@
             font-weight: 600;
         }
 
-        
+        /* --- SEÇÃO: ARTEFATO DIGITAL (FRAMEWORK) --- */
         #artefato {
             background-color: var(--accent);
         }
@@ -205,7 +211,7 @@
             margin-bottom: 8px;
         }
 
-        
+        /* --- SEÇÃO: SOLUÇÕES PRÁTICAS --- */
         #solucoes {
             background-color: var(--white);
         }
@@ -676,7 +682,7 @@ header, nav{box-sizing:border-box}
 nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
 nav a{white-space:normal;text-align:center}
 
-
+/* Formulários e simulador */
 select,input,textarea{max-width:100%;box-sizing:border-box}
 .simulador, .simulador-investimento, #simuladorInvestimento{
   box-sizing:border-box;
@@ -711,7 +717,7 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
   .orcamento-acoes button{width:100%}
 }
 
-
+/* Impressão limpa do orçamento */
 @media print{
   body{background:#fff!important;color:#111!important}
   header,nav,footer,.orcamento-acoes,button,a[href]{display:none!important}
@@ -767,15 +773,6 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
                 </div>
             </div>
         </section>
-        
-        <body
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;>
-        </body>
-            
 
         <section id="artefato">
             <h2 class="section-title">O Artefato Digital de Proteção</h2>
@@ -807,11 +804,6 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
                 </div>
             </div>
         </section>
-        body {
-            background-color: #fafafa;
-            color: var(--dark);
-            line-height: 1.6;
-        }
 
         <section id="solucoes">
             <h2 class="section-title">Soluções e Remediações Práticas</h2>
@@ -853,7 +845,6 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
                 </div>
             </div>
         </section>
-
 
         <section id="produtos">
             <h2 class="section-title">Nossos Planos de Blindagem Digital</h2>
@@ -957,333 +948,16 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
                 </div>
             </div>
         </section>
-        </div>
+    </div>
 
-        <section {
-            padding: 80px 0;
-        }
-
-       
-        header {
-            background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        h1.logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        h1.logo span {
-            color: var(--secondary);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            margin-left: 30px;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        
-        .hero {
-            background: linear-gradient(135deg, rgba(30,70,32,0.95) 0%, rgba(15,35,16,0.98) 100%), 
-                        url('https://unsplash.com') no-repeat center center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 120px 0;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #e0eae0;
-            font-weight: 300;
-        }
-
-        
-        #problema {
-            background-color: var(--white);
-        }
-
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            border-left: 5px solid var(--secondary);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .impact-badge {
-            display: inline-block;
-            background-color: #fff0e6;
-            color: var(--secondary);
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-       
-        #artefato {
-            background-color: var(--accent);
-        }
-
-        .framework-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline-step {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
-
-        .step-number {
-            background: var(--primary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .step-content h3 {
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-       
-        #solucoes {
-            background-color: var(--white);
-        }
-
-        .solucoes-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .solucao-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            border-top: 4px solid var(--primary-light);
-        }
-
-        .solucao-item h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-       
-        #simulador {
-            background-color: var(--accent);
-        }
-
-        .simulator-box {
-            background: var(--white);
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            background-color: var(--white);
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-group select:focus {
-            border-color: var(--primary-light);
-        }
-
-        .btn-calc {
-            display: block;
-            width: 100%;
-            background-color: var(--secondary);
-            color: var(--white);
-            border: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-calc:hover {
-            background-color: #cc5200;
-        }
-
-        
-        #resultado {
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 8px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .resultado-titulo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .recomendacoes-lista {
-            margin-top: 15px;
-            padding-left: 20px;
-        }
-
-        .recomendacoes-lista li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        .status-alto {
-            background-color: #fff0f1;
-            border: 2px solid var(--danger);
-            color: #800010;
-        }
-        .status-medio {
-            background-color: #fffbeb;
-            border: 2px solid var(--warning);
-            color: #7a5c00;
-        }
-        .status-baixo {
-            background-color: #f2fbf4;
-            border: 2px solid var(--success);
-            color: #1b5e20;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
-        }
-
-       
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                height: auto;
-                padding: 15px;
-                gap: 10px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            .simulator-box {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    
-    <header>
+    <footer>
         <div class="container">
-                <p>&copy; 2026 AgroSeguro Proteção Digital do Agronegócio. Todos os direitos reservados.</p>
+            <p>&copy; 2026 AgroSeguro Proteção Digital do Agronegócio. Todos os direitos reservados.</p>
         </div>
-     </footer>
+    </footer>
 
-      <script>
-       
+    <script>
+        // Dados de controle dos produtos
         let precoBaseSelecionado = 1200;
         let idSelecionado = 'p1';
 
@@ -1667,6 +1341,102 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
 <div class="status-organizacao-agroseguro" style="max-width:1180px;margin:18px auto 28px;padding:12px 16px;border-radius:12px;background:#eaf5ed;border:1px solid #cfe4d4;color:#245d36;text-align:center;font-size:.92rem;">
   <strong>AgroSeguro</strong> — navegação, planos, simulador, produtos indicados e orçamento organizados em uma única página.
 </div>
+
+
+<section id="sustentabilidade-digital" class="section" style="padding: 40px 20px; margin-top: 30px;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align:center; margin-bottom:28px;">
+      <h2>🌱 Sustentabilidade e segurança digital no campo</h2>
+      <p>
+        Soluções sustentáveis ajudam o produtor a economizar recursos, proteger equipamentos
+        e manter os dados da propriedade seguros.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;">
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80"
+             alt="Painéis solares em uma propriedade rural"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>☀️ Energia limpa e proteção</h3>
+          <p>Use energia solar para alimentar câmeras, sensores, roteadores e sistemas de monitoramento rural.</p>
+        </div>
+      </article>
+
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c8f5d1?auto=format&fit=crop&w=900&q=80"
+             alt="Equipamentos tecnológicos utilizados em uma propriedade"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>🔧 Equipamentos eficientes</h3>
+          <p>Prefira equipamentos de baixo consumo, faça manutenção preventiva e descarte eletrônicos corretamente.</p>
+        </div>
+      </article>
+
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=900&q=80"
+             alt="Sistema de irrigação em uma plantação"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>💧 Economia de água</h3>
+          <p>Instale sensores de umidade e automatize a irrigação para reduzir desperdícios e melhorar a produção.</p>
+        </div>
+      </article>
+
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+             alt="Tecnologia digital e armazenamento de dados"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>💾 Gestão digital responsável</h3>
+          <p>Faça backups, organize documentos digitais e reduza o uso de papel sem abrir mão da proteção dos dados.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:30px; padding:24px;">
+      <h3>💰 Calculadora de custo para uma propriedade mais sustentável</h3>
+      <p>Selecione as soluções que deseja implementar. Os valores são estimativas ilustrativas e podem variar.</p>
+
+      <div id="sustentabilidade-opcoes" style="display:grid; gap:12px; margin:20px 0;">
+        <label><input type="checkbox" data-custo="1200"> Backup seguro e armazenamento protegido — <strong>R$ 1.200,00</strong></label>
+        <label><input type="checkbox" data-custo="850"> Nobreak e proteção elétrica — <strong>R$ 850,00</strong></label>
+        <label><input type="checkbox" data-custo="1800"> Sensores de umidade e irrigação inteligente — <strong>R$ 1.800,00</strong></label>
+        <label><input type="checkbox" data-custo="8000"> Sistema de energia solar rural — <strong>R$ 8.000,00</strong></label>
+        <label><input type="checkbox" data-custo="450"> Organização e descarte correto de eletrônicos — <strong>R$ 450,00</strong></label>
+        <label><input type="checkbox" data-custo="600"> Treinamento de segurança digital da equipe — <strong>R$ 600,00</strong></label>
+      </div>
+
+      <div style="background:rgba(46,125,50,.12); border-radius:12px; padding:18px; text-align:center;">
+        <span style="display:block;">Custo estimado total</span>
+        <strong id="total-sustentabilidade" style="font-size:2rem;">R$ 0,00</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const area = document.getElementById("sustentabilidade-opcoes");
+  const total = document.getElementById("total-sustentabilidade");
+  if (!area || !total) return;
+
+  function atualizarTotal() {
+    let valor = 0;
+    area.querySelectorAll("input[type='checkbox']:checked").forEach(function (item) {
+      valor += Number(item.dataset.custo || 0);
+    });
+    total.textContent = valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    });
+  }
+
+  area.addEventListener("change", atualizarTotal);
+  atualizarTotal();
+})();
+</script>
 
 </body>
 </html>
