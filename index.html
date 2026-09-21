@@ -1453,24 +1453,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Se nenhum produto estiver selecionado, mostra um aviso simples
+       
         if (total === 0) {
             listaDisplay.innerHTML = '<em style="display:block; text-align:center; color:#666;">Nenhum item selecionado</em>';
         } else {
             listaDisplay.innerHTML = itensHTML;
         }
 
-        // Atualiza o valor final da soma
+       
         totalDisplay.textContent = total.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL'
         });
     }
 
-    // Executa uma vez no início para mostrar o estado vazio
+    
     calcularTotal();
 
-    // Adiciona o evento de clique em cada caixinha
+   
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', calcularTotal);
     });
@@ -1485,10 +1485,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <p style="color: #666;">Selecione os produtos que deseja incluir no seu orçamento. Os valores são estimativas ilustrativas.</p>
     </div>
 
-    <!-- Grid de produtos -->
+    
     <div class="produtos-sustentabilidade-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
       
-      <!-- Produto 1 -->
+      
       <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
         <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
           <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de backup seguro" data-preco="1200.00"> Selecionar
@@ -1500,7 +1500,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="https://netshopinformatica.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <!-- Produto 2 -->
+      
       <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
         <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
           <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Nobreak e proteção elétrica" data-preco="850.00"> Selecionar
@@ -1512,7 +1512,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <!-- Produto 3 -->
+      
       <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
         <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
           <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de sensores de umidade" data-preco="1785.72"> Selecionar
@@ -1524,7 +1524,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="https://amazon.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <!-- Produto 4 -->
+      
       <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
         <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
           <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de energia solar rural" data-preco="8000.00"> Selecionar
@@ -1536,7 +1536,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <!-- Produto 5 -->
+      
       <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
         <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
           <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Descarte correto de eletrônicos" data-preco="450.00"> Selecionar
