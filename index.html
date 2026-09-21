@@ -1487,82 +1487,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<section id="produtos-sustentabilidade-venda" style="padding:40px 20px;margin-top:25px;">
+<section id="produtos-sustentabilidade-venda" style="padding:40px 20px;margin-top:25px; font-family: sans-serif;">
   <div style="max-width:1200px;margin:auto;">
     <div style="text-align:center;margin-bottom:25px;">
       <h2>🛒 Produtos indicados para ajudar o produtor</h2>
-      <p>Produtos e serviços relacionados às soluções sustentáveis acima. Os preços são estimativas ilustrativas.</p>
+      <p>Selecione os produtos que deseja incluir no seu orçamento. Os valores são estimativas ilustrativas.</p>
     </div>
 
-    <div class="produtos-sustentabilidade-grid">
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Backup e armazenamento digital">
-        <h3>Kit de backup seguro</h3>
-        <p>Armazenamento protegido para documentos, relatórios e dados da propriedade.</p>
-        <strong>A partir de R$ 1.200,00</strong>
-        <button class="produto-sustentavel-btn" data-produto="Kit de backup seguro">
-            <a href="https://netshopinformatica.com.br/produto/hd-lacie-externo-rugged-2tb-usb-31-c-clay-orange-stfr2000800/">compre ja</a>
-            
-            <button type="button" class="selecionar-produto-sustentavel" data-produto="Kit de sensores de umidade" data-preco="1200">Selecionar produto</button>
-        </button>
+    <!-- Grid de produtos -->
+    <div class="produtos-sustentabilidade-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
+      
+      <!-- Produto 1 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de backup seguro" data-preco="1200.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Backup e armazenamento digital" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Kit de backup seguro</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Armazenamento protegido para documentos, relatórios e dados da propriedade.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 1.200,00</strong>
+        <a href="https://netshopinformatica.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" alt="Nobreak e proteção elétrica">
-        <h3>Nobreak e proteção elétrica</h3>
-        <p>Ajuda a proteger computadores, câmeras, roteadores e sensores contra oscilações.</p>
-        <strong>A partir de R$ 850,00</strong>
-        <button class="produto-sustentavel-btn" data-produto="Nobreak e proteção elétrica">
-            <a href=https://www.mercadolivre.com.br/nobreak-1200-va-600w-ebivolt-s120v-attiv-1200-bi-intelbras/up/MLBU1971888366>compre ja</a>
-        </button>
-        </button>
+      <!-- Produto 2 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Nobreak e proteção elétrica" data-preco="850.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Nobreak e proteção elétrica" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Nobreak e proteção elétrica</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Ajuda a proteger computadores, câmeras, roteadores e sensores contra oscilações.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 850,00</strong>
+        <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=900&q=80" alt="Sensores de umidade e irrigação">
-        <h3>Kit de sensores de umidade</h3>
-        <p>Monitoramento do solo para apoiar uma irrigação mais eficiente e econômica.</p>
-        <strong>A partir de R$ 1.785,72</strong>
-        <button class="produto-sustentavel-btn" data-produto="Kit de sensores de umidade">
-            <a href=https://www.amazon.com.br/umidade-precis%C3%A3o-testador-agricultura-jardinagem/dp/B0GJ5VRGCD>compre ja</a>
-        </button>
-        </button>
+      <!-- Produto 3 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de sensores de umidade" data-preco="1785.72"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Sensores de umidade e irrigação" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Kit de sensores de umidade</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Monitoramento do solo para apoiar uma irrigação mais eficiente e econômica.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 1.785,72</strong>
+        <a href="https://amazon.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80" alt="Kit de energia solar rural">
-        <h3>Kit de energia solar rural</h3>
-        <p>Energia limpa para apoiar o funcionamento de sensores e equipamentos do campo.</p>
-        <strong>A partir de R$ 8.000,00</strong>
-        <button class="produto-sustentavel-btn" data-produto="Kit de energia solar rural"><a href=https://www.mercadolivre.com.br/up/MLBU3429739190?pdp_filtersitem_id:MLB4208497407#originshare&sidshare&widMLB4208497407&actioncopy>compre ja</a>
-        </button></button>
+      <!-- Produto 4 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de energia solar rural" data-preco="8000.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Kit de energia solar rural" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Kit de energia solar rural</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Energia limpa para apoiar o funcionamento de sensores e equipamentos do campo.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 8.000,00</strong>
+        <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=900&q=80" alt="Reciclagem de equipamentos eletrônicos">
-        <h3>Descarte correto de eletrônicos</h3>
-        <p>Organização e encaminhamento responsável de equipamentos antigos ou sem uso.</p>
-        <strong>A partir de R$ 450,00</strong>
-        <button class="produto-sustentavel-btn" data-produto="Descarte correto de eletrônicos">
-            <a href=https://eureciclo.com.br/blog/guia-descartar-eletronicos>compre ja</a>
-        </button>
+      <!-- Produto 5 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Descarte correto de eletrônicos" data-preco="450.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Reciclagem de equipamentos eletrônicos" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Descarte correto de eletrônicos</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Organização e encaminhamento responsável de equipamentos antigos ou sem uso.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 450,00</strong>
+        <a href="https://eureciclo.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="produto-sustentavel-card">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80" alt="Treinamento de segurança digital">
-        <h3>Treinamento de segurança digital</h3>
-        <p>Capacitação da equipe para proteger senhas, dados e sistemas da propriedade.</p>
-        <strong>A partir de R$ 600,00</strong>
-        <button class="produto-sustentavel-btn" data-produto="Treinamento de segurança digital">Selecionar produto</button>
+      <!-- Produto 6 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative;">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Treinamento de segurança digital" data-preco="600.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Treinamento de segurança digital" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0;">Treinamento de segurança digital</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1;">Capacitação da equipe para proteger senhas, dados e sistemas da propriedade.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 600,00</strong>
+        <span style="display: block; text-align: center; background: #777; color: white; padding: 8px; border-radius: 4px; font-size: 0.9rem; font-weight: bold;">Sob consulta</span>
       </article>
     </div>
 
-    <div id="produto-sustentavel-selecionado" style="margin-top:25px;padding:18px;border-radius:12px;background:#edf7ef;border:1px solid #cfe5d3;">
-      <strong>Produto selecionado:</strong> <span id="produto-sustentavel-nome">Nenhum produto selecionado.</span>
-      <button id="produto-sustentavel-orcamento" type="button">Ir para o orçamento</button>
-    </div>
-  </div>
-</section>
+
 
 <style>
 .produtos-sustentabilidade-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
