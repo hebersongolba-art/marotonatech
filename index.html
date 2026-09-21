@@ -1485,123 +1485,85 @@ document.addEventListener('DOMContentLoaded', () => {
     <p>Confira produtos e serviços relacionados às soluções da calculadora. Os preços são estimativas ilustrativas e podem variar conforme a propriedade e o fornecedor.</p>
   </div>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Sustentabilidade Digital</title>
-</head>
-<body style="margin: 0; background-color: #f9f9f9;">
-
-<section id="sustentabilidade-digital" class="section" style="padding: 40px 20px; font-family: sans-serif; color: #333;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto;">
-    
-    <div style="text-align:center; margin-bottom:28px;">
-      <h2>🌱 Sustentabilidade e segurança digital no campo</h2>
-      <p style="color: #666;">
-        Soluções sustentáveis ajudam o produtor a economizar recursos, proteger equipamentos
-        e manter os dados da propriedade seguros.
-      </p>
+<section id="produtos-sustentabilidade-venda" style="padding:40px 20px;margin-top:25px; font-family: sans-serif; background-color: #f9f9f9;">
+  <div style="max-width:1200px;margin:auto;">
+    <div style="text-align:center;margin-bottom:25px;">
+      <h2>🛒 Produtos indicados para ajudar o produtor</h2>
+      <p style="color: #666;">Selecione os produtos que deseja incluir no seu orçamento. Os valores são estimativas ilustrativas.</p>
     </div>
 
-    <!-- Cards Informativos com Imagens Corrigidas -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;">
+    <!-- Grid de produtos -->
+    <div class="produtos-sustentabilidade-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
       
-      <article class="card" style="overflow:hidden; border: 1px solid #e0e0e0; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <img src="https://unsplash.com"
-             alt="Painéis solares em uma propriedade rural"
-             style="width:100%; height:180px; object-fit:cover;">
-        <div style="padding:18px;">
-          <h3 style="margin-top:0;">☀️ Energia limpa e proteção</h3>
-          <p style="font-size:0.9rem; color:#555; line-height:1.4;">Use energia solar para alimentar câmeras, sensores, roteadores e sistemas de monitoramento rural.</p>
-        </div>
+      <!-- Produto 1 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de backup seguro" data-preco="1200.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Backup e armazenamento digital" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Kit de backup seguro</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Armazenamento protegido para documentos, relatórios e dados da propriedade.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 1.200,00</strong>
+        <a href="https://netshopinformatica.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="card" style="overflow:hidden; border: 1px solid #e0e0e0; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <img src="https://unsplash.com"
-             alt="Equipamentos tecnológicos utilizados em uma propriedade"
-             style="width:100%; height:180px; object-fit:cover;">
-        <div style="padding:18px;">
-          <h3 style="margin-top:0;">🔧 Equipamentos eficientes</h3>
-          <p style="font-size:0.9rem; color:#555; line-height:1.4;">Prefira equipamentos de baixo consumo, faça manutenção preventiva e descarte eletrônicos corretamente.</p>
-        </div>
+      <!-- Produto 2 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Nobreak e proteção elétrica" data-preco="850.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Nobreak e proteção elétrica" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Nobreak e proteção elétrica</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Ajuda a proteger computadores, câmeras, roteadores e sensores contra oscilações.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 850,00</strong>
+        <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="card" style="overflow:hidden; border: 1px solid #e0e0e0; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <img src="https://unsplash.com"
-             alt="Sistema de irrigação em uma plantação"
-             style="width:100%; height:180px; object-fit:cover;">
-        <div style="padding:18px;">
-          <h3 style="margin-top:0;">💧 Economia de água</h3>
-          <p style="font-size:0.9rem; color:#555; line-height:1.4;">Instale sensores de umidade e automatize a irrigação para reduzir desperdícios e melhorar a produção.</p>
-        </div>
+      <!-- Produto 3 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de sensores de umidade" data-preco="1785.72"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Sensores de umidade e irrigação" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Kit de sensores de umidade</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Monitoramento do solo para apoiar uma irrigação mais eficiente e econômica.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 1.785,72</strong>
+        <a href="https://amazon.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
 
-      <article class="card" style="overflow:hidden; border: 1px solid #e0e0e0; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-        <img src="https://unsplash.com"
-             alt="Tecnologia digital e armazenamento de dados"
-             style="width:100%; height:180px; object-fit:cover;">
-        <div style="padding:18px;">
-          <h3 style="margin-top:0;">💾 Gestão digital responsável</h3>
-          <p style="font-size:0.9rem; color:#555; line-height:1.4;">Faça backups, organize documentos digitais e reduza o uso de papel sem abrir mão da proteção dos dados.</p>
-        </div>
+      <!-- Produto 4 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Kit de energia solar rural" data-preco="8000.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Kit de energia solar rural" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Kit de energia solar rural</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Energia limpa para apoiar o funcionamento de sensores e equipamentos do campo.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 8.000,00</strong>
+        <a href="https://mercadolivre.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
       </article>
-      
-    </div>
 
-    <!-- Calculadora Funcional -->
-    <div class="card" style="margin-top:30px; padding:24px; border: 1px solid #e0e0e0; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-      <h3 style="margin-top:0;">💰 Calculadora de custo para uma propriedade mais sustentável</h3>
-      <p style="color: #666;">Selecione as soluções que deseja implementar. Os valores são estimativas ilustrativas e podem variar.</p>
+      <!-- Produto 5 -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Descarte correto de eletrônicos" data-preco="450.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Reciclagem de equipamentos eletrônicos" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Descarte correto de eletrônicos</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Organização e encaminhamento responsável de equipamentos antigos ou sem uso.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 450,00</strong>
+        <a href="https://eureciclo.com.br" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;">Compre já</a>
+      </article>
 
-      <div id="sustentabilidade-opcoes" style="display:grid; gap:12px; margin:20px 0;">
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="1200"> Backup seguro e armazenamento protegido — <strong>R$ 1.200,00</strong></label>
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="850"> Nobreak e proteção elétrica — <strong>R$ 850,00</strong></label>
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="1800"> Sensores de umidade e irrigação inteligente — <strong>R$ 1.800,00</strong></label>
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="8000"> Sistema de energia solar rural — <strong>R$ 8.000,00</strong></label>
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="450"> Organização e descarte correto de eletrônicos — <strong>R$ 450,00</strong></label>
-        <label style="cursor:pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" data-custo="600"> Treinamento de segurança digital da equipe — <strong>R$ 600,00</strong></label>
-      </div>
-
-      <div style="background:rgba(46,125,50,.12); border-radius:12px; padding:18px; text-align:center;">
-        <span style="display:block; color:#2e7d32; font-weight:bold; margin-bottom: 4px;">Custo estimado total</span>
-        <strong id="total-sustentabilidade" style="font-size:2.2rem; color:#2e7d32;">R$ 0,00</strong>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-<!-- Lógica do Cálculo Dinâmico -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const checkboxes = document.querySelectorAll('#sustentabilidade-opcoes input[type="checkbox"]');
-    const totalDisplay = document.getElementById('total-sustentabilidade');
-
-    function atualizarPrecoTotal() {
-      let soma = 0;
-
-      checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-          soma += parseFloat(checkbox.getAttribute('data-custo')) || 0;
-        }
-      });
-
-      totalDisplay.textContent = soma.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      });
-    }
-
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', atualizarPrecoTotal);
-    });
-  });
-</script>
-
-</body>
-</html>
+      <!-- Produto 6 (Corrigido e fechado) -->
+      <article class="produto-sustentavel-card" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; background: #fff; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+        <label style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" class="selecionar-produto-sustentavel" data-produto="Treinamento de segurança digital" data-preco="600.00"> Selecionar
+        </label>
+        <img src="https://unsplash.com" alt="Treinamento em segurança de dados" style="width:100%; height:180px; object-fit:cover; border-radius: 6px;">
+        <h3 style="margin: 12px 0 6px 0; font-size: 1.2rem;">Treinamento de segurança</h3>
+        <p style="font-size: 0.9rem; color: #555; flex-grow: 1; line-height: 1.4;">Capacitação da equipe rural para evitar golpes digitais e vazamento de relatórios.</p>
+        <strong style="display:block; margin: 10px 0; color: #2e7d32; font-size: 1.1rem;">A partir de R$ 600,00</strong>
 
 
 <style>
