@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroSeguro - Protegendo a Tecnologia do Campo — Projeto de Heberson Gustavo Golba</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
-   
-   <style>
+    <style>
         /* --- ESTILOS GERAIS E PALETA DE CORES (AGRO TECH) --- */
         :root {
             --primary: #1e4620;        /* Verde Folha Escuro */
@@ -100,8 +99,7 @@
             color: var(--secondary);
         }
 
-    
-        
+        /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(135deg, rgba(30,70,32,0.95) 0%, rgba(15,35,16,0.98) 100%), 
                         url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?q=80&w=1920') no-repeat center center/cover;
@@ -727,57 +725,6 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
 }
 </style>
 
-
-<style id="produtos-sustentaveis-direcionamento">
-.sustentavel-produto-link{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 14px;
-  border-radius:8px;
-  background:var(--secondary);
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  text-align:center;
-}
-.sustentavel-produto-link:hover{filter:brightness(.95)}
-#produtoSustentavelSelecionado{
-  display:none;
-  margin-top:18px;
-  padding:18px;
-  border:2px solid var(--primary-light);
-  border-radius:12px;
-  background:#f2faf3;
-}
-#produtoSustentavelSelecionado.visivel{display:block}
-#produtoSustentavelSelecionado h4{color:var(--primary);margin-bottom:8px}
-</style>
-
-
-<style id="imagens-precos-sustentabilidade">
-.precos-sustentabilidade .item-sustentavel{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:12px;
-  margin:10px 0;
-  border:1px solid #d8e8dc;
-  border-radius:12px;
-  background:#fbfffc;
-}
-.precos-sustentabilidade .item-sustentavel img{
-  width:105px;
-  height:78px;
-  object-fit:cover;
-  border-radius:9px;
-  flex-shrink:0;
-}
-@media(max-width:600px){
-  .precos-sustentabilidade .item-sustentavel{align-items:flex-start}
-  .precos-sustentabilidade .item-sustentavel img{width:82px;height:70px}
-}
-</style>
-
 </head>
 <body>
 
@@ -1003,19 +950,14 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
         </section>
     </div>
 
-    
-<section id="produtoSustentavelSelecionado" aria-live="polite">
-  <h4>Produto sustentável selecionado</h4>
-  <p id="textoProdutoSustentavel"></p>
-  <a id="linkProdutoSustentavel" class="sustentavel-produto-link" href="#produtos">
-    Ver produto indicado e calcular orçamento
-  </a>
-</section>
-
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AgroSeguro Proteção Digital do Agronegócio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <script>
-       
+        // Dados de controle dos produtos
         let precoBaseSelecionado = 1200;
         let idSelecionado = 'p1';
 
@@ -1401,55 +1343,86 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
 </div>
 
 
-<script id="direcionamento-produtos-sustentaveis">
-const produtosSustentaveis = {
-  backup: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Backup seguro e armazenamento protegido</span></span>",
-    destino: "#produtosRecomendados",
-    descricao: "Para proteger relatórios, documentos e dados da propriedade, consulte os produtos recomendados de backup e armazenamento seguro."
-  },
-  nobreak: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Nobreak e proteção elétrica</span></span>",
-    destino: "#produtosRecomendados",
-    descricao: "Para manter os equipamentos protegidos contra quedas de energia, consulte os produtos de proteção elétrica indicados."
-  },
-  sensores: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Sensores de umidade e irrigação inteligente</span></span>",
-    destino: "#produtosRecomendados",
-    descricao: "Para economizar água e monitorar a lavoura, consulte os sensores e equipamentos de irrigação inteligente recomendados."
-  },
-  solar: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Sistema de energia solar rural</span></span>",
-    destino: "#produtosRecomendados",
-    descricao: "Para reduzir o consumo de energia e alimentar equipamentos do campo, consulte as soluções de energia solar indicadas."
-  },
-  eletronicos: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Organização e descarte correto de eletrônicos</span></span>",
-    destino: "#produtosRecomendados",
-    descricao: "Para organizar a infraestrutura e dar destino correto aos equipamentos antigos, consulte os itens e serviços recomendados."
-  },
-  treinamento: {
-    nome: "<span class="item-sustentavel"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="Ilustração de sustentabilidade digital"><span>Treinamento de segurança digital da equipe</span></span>",
-    destino: "#produtos",
-    descricao: "Para capacitar a equipe e melhorar a proteção digital, consulte os planos de blindagem disponíveis."
-  }
-};
+<section id="sustentabilidade-digital" class="section" style="padding: 40px 20px; margin-top: 30px;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <div style="text-align:center; margin-bottom:28px;">
+      <h2>🌱 Sustentabilidade e segurança digital no campo</h2>
+      <p>
+        Soluções sustentáveis ajudam o produtor a economizar recursos, proteger equipamentos
+        e manter os dados da propriedade seguros.
+      </p>
+    </div>
 
-function direcionarParaProdutoSustentavel(chave) {
-  const produto = produtosSustentaveis[chave];
-  if (!produto) return;
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;">
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80"
+             alt="Painéis solares em uma propriedade rural"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>☀️ Energia limpa e proteção</h3>
+          <p>Use energia solar para alimentar câmeras, sensores, roteadores e sistemas de monitoramento rural.</p>
+        </div>
+      </article>
 
-  const area = document.getElementById("produtoSustentavelSelecionado");
-  const texto = document.getElementById("textoProdutoSustentavel");
-  const link = document.getElementById("linkProdutoSustentavel");
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c8f5d1?auto=format&fit=crop&w=900&q=80"
+             alt="Equipamentos tecnológicos utilizados em uma propriedade"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>🔧 Equipamentos eficientes</h3>
+          <p>Prefira equipamentos de baixo consumo, faça manutenção preventiva e descarte eletrônicos corretamente.</p>
+        </div>
+      </article>
 
-  texto.textContent = produto.nome + ". " + produto.descricao;
-  link.href = produto.destino;
-  link.textContent = "Ver produto indicado e calcular orçamento";
-  area.classList.add("visivel");
-  area.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-</script>
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=900&q=80"
+             alt="Sistema de irrigação em uma plantação"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>💧 Economia de água</h3>
+          <p>Instale sensores de umidade e automatize a irrigação para reduzir desperdícios e melhorar a produção.</p>
+        </div>
+      </article>
+
+      <article class="card" style="overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+             alt="Tecnologia digital e armazenamento de dados"
+             style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:18px;">
+          <h3>💾 Gestão digital responsável</h3>
+          <p>Faça backups, organize documentos digitais e reduza o uso de papel sem abrir mão da proteção dos dados.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:30px; padding:24px;">
+      <h3>💰 Calculadora de custo para uma propriedade mais sustentável</h3>
+      <p>Selecione as soluções que deseja implementar. Os valores são estimativas ilustrativas e podem variar.</p>
+
+      <div id="sustentabilidade-opcoes" style="display:grid; gap:12px; margin:20px 0;">
+        <label><input type="checkbox" data-custo="1200"> Backup seguro e armazenamento protegido — <strong>R$ 1.200,00</strong></label>
+        <label><input type="checkbox" data-custo="850"> Nobreak e proteção elétrica — <strong>R$ 850,00</strong></label>
+        <label><input type="checkbox" data-custo="1800"> Sensores de umidade e irrigação inteligente — <strong>R$ 1.800,00</strong></label>
+        <label><input type="checkbox" data-custo="8000"> Sistema de energia solar rural — <strong>R$ 8.000,00</strong></label>
+        <label><input type="checkbox" data-custo="450"> Organização e descarte correto de eletrônicos — <strong>R$ 450,00</strong></label>
+        <label><input type="checkbox" data-custo="600"> Treinamento de segurança digital da equipe — <strong>R$ 600,00</strong></label>
+      </div>
+
+      <div style="background:rgba(46,125,50,.12); border-radius:12px; padding:18px; text-align:center;">
+        <span style="display:block;">Custo estimado total</span>
+        <strong id="total-sustentabilidade" style="font-size:2rem;">R$ 0,00</strong>
+      </div>
+    </div>
+  </div>
+
+
+<!-- AGROSEGURO-PRODUTOS-SUSTENTAVEIS-INICIO -->
+<div id="catalogo-produtos-sustentaveis" class="card" style="margin-top:30px; padding:24px;">
+  <div style="text-align:center; margin-bottom:24px;">
+    <h3>🛒 Produtos indicados para ajudar o produtor</h3>
+    <p>Confira produtos e serviços relacionados às soluções da calculadora. Os preços são estimativas ilustrativas e podem variar conforme a propriedade e o fornecedor.</p>
+  </div>
+
 
 
 <section id="produtos-sustentabilidade-venda" style="padding:40px 20px;margin-top:25px;">
@@ -1556,6 +1529,8 @@ function direcionarParaProdutoSustentavel(chave) {
     });
   }
 })();
+
+
 </script>
 <section id="produtos-sustentabilidade-venda" style="padding:40px 20px;margin-top:25px;">
   <div style="max-width:1200px;margin:auto;">
