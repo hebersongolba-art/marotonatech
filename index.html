@@ -1414,6 +1414,68 @@ select,input,textarea{max-width:100%;box-sizing:border-box}
       </div>
     </div>
   </div>
+<!-- Substitua a parte final do seu HTML por esta para exibir a lista -->
+<div style="background:rgba(46,125,50,.12); border-radius:12px; padding:18px;">
+    <span style="display:block; text-align:center; font-weight:bold; margin-bottom:10px;">Produtos Selecionados:</span>
+    
+    <!-- Este espaço vai mostrar os produtos e seus valores individuais -->
+    <div id="lista-selecionados" style="margin-bottom:15px; font-size:0.95rem; color:#333;"></div>
+    
+    <div style="text-align:center; border-top:1px solid rgba(0,0,0,0.1); padding-top:10px;">
+        <span>Custo estimado total</span>
+        <strong id="total-sustentabilidade" style="display:block; font-size:2rem;">R\$ 0,00</strong>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('#sustentabilidade-opcoes input[type="checkbox"]');
+    const totalDisplay = document.getElementById('total-sustentabilidade');
+    const listaDisplay = document.getElementById('lista-selecionados');
+
+    function calcularTotal() {
+        let total = 0;
+        let itensHTML = ''; // Guarda o texto dos produtos selecionados
+        
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const custo = parseFloat(checkbox.getAttribute('data-custo'));
+                total += custo;
+                
+                // Pega o texto do <label> removendo o próprio input para isolar o nome do produto
+                const nomeProduto = checkbox.parentElement.textContent.trim();
+                
+                // Cria uma linha para o produto com alinhamento bonito
+                itensHTML += `<div style="display:flex; justify-content:between; margin-bottom:5px;">
+                    <span style="flex-grow:1;">✔️ ${nomeProduto.split('—')[0].trim()}</span>
+                    <strong>${custo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                </div>`;
+            }
+        });
+
+        // Se nenhum produto estiver selecionado, mostra um aviso simples
+        if (total === 0) {
+            listaDisplay.innerHTML = '<em style="display:block; text-align:center; color:#666;">Nenhum item selecionado</em>';
+        } else {
+            listaDisplay.innerHTML = itensHTML;
+        }
+
+        // Atualiza o valor final da soma
+        totalDisplay.textContent = total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+    }
+
+    // Executa uma vez no início para mostrar o estado vazio
+    calcularTotal();
+
+    // Adiciona o evento de clique em cada caixinha
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calcularTotal);
+    });
+});
+</script>
 
 
 <!-- AGROSEGURO-PRODUTOS-SUSTENTAVEIS-INICIO -->
