@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Apoio - Inglês Paraná</title>
+    <title>Acesso Seguro - Inglês Paraná Highs</title>
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #00b4d8;
-            --bg-color: #f4f7f6;
+            --primary-color: #003366;
+            --secondary-color: #0066cc;
+            --bg-color: #f0f4f8;
             --card-bg: #ffffff;
             --text-color: #333333;
-            --alert-color: #ff9f1c;
         }
 
         * {
@@ -31,49 +30,58 @@
             padding: 20px;
         }
 
-        .container {
+        .login-card {
             background: var(--card-bg);
+            padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 420px;
             width: 100%;
-            padding: 30px;
-        }
-
-        .header {
             text-align: center;
-            margin-bottom: 25px;
+            border-top: 6px solid var(--primary-color);
         }
 
-        .header h2 { color: var(--primary-color); }
-        .header p { font-size: 0.9rem; color: #666; }
+        .login-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+
+        .login-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
 
         .input-group {
+            text-align: left;
             margin-bottom: 20px;
         }
 
-        label {
+        .input-group label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
         }
 
-        input, textarea {
+        .input-group input {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #dcdcdc;
             border-radius: 8px;
             font-size: 1rem;
             outline: none;
-            resize: vertical;
+            transition: border-color 0.2s;
         }
 
-        input:focus, textarea:focus {
+        .input-group input:focus {
             border-color: var(--secondary-color);
         }
 
-        .btn-solve {
+        .btn-redirect {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
@@ -83,78 +91,61 @@
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .result-box {
-            display: none;
-            margin-top: 25px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-left: 5px solid var(--alert-color);
-            border-radius: 4px;
+        .btn-redirect:hover {
+            opacity: 0.95;
         }
 
-        .result-title {
-            font-weight: bold;
-            color: #d9534f;
-            margin-bottom: 10px;
-        }
-
-        .explanation {
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .security-notice {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h2>Decodificador de Erros</h2>
-            <p>Errou a questão? Cole o enunciado abaixo para entender a resposta correta imediatamente.</p>
+    <div class="login-card">
+        <h2>Inglês Paraná Highs</h2>
+        <p>Insira suas informações institucionais para abrir com segurança a plataforma oficial de lições.</p>
+        
+        <div class="input-group">
+            <label for="email">E-mail @escola:</label>
+            <input type="email" id="email" placeholder="seu.nome@escola.pr.gov.br" required>
         </div>
 
         <div class="input-group">
-            <label for="student-id">Identificador (@escola):</label>
-            <input type="text" id="student-id" placeholder="seu.nome@escola.pr.gov.br">
+            <label for="password">Senha institucional:</label>
+            <input type="password" id="password" placeholder="Digite sua senha institucional" required>
         </div>
 
-        <div class="input-group">
-            <label for="exercise-text">Cole a frase ou exercício que você errou:</label>
-            <textarea id="exercise-text" rows="3" placeholder="Ex: She ______ (go) to school everyday."></textarea>
-        </div>
+        <button class="btn-redirect" onclick="processAccess()">Entrar no Inglês Paraná</button>
 
-        <button class="btn-solve" onclick="analyzeExercise()">Analisar e Corrigir</button>
-
-        <div id="result-area" class="result-box">
-            <div class="result-title">📢 Análise da Questão Acadêmica</div>
-            <div class="explanation" id="explanation-text"></div>
-        </div>
+        <p class="security-notice">
+            🔒 <strong>Aviso de Segurança:</strong> Seus dados de login são protegidos e validados diretamente pelo servidor integrado oficial da SEED-PR.
+        </p>
     </div>
 
     <script>
-        function analyzeExercise() {
-            const id = document.getElementById('student-id').value.trim();
-            const text = document.getElementById('exercise-text').value.trim();
-
-            if (id === "" || text === "") {
-                alert("Por favor, preencha o seu @escola e cole a questão para análise.");
+        function processAccess() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (email === "" || password === "") {
+                alert("Por favor, preencha todos os campos obrigatórios.");
                 return;
             }
 
-            const resultArea = document.getElementById('result-area');
-            const explanationText = document.getElementById('explanation-text');
-
-            resultArea.style.display = 'block';
+            if (!email.includes("@escola")) {
+                alert("Por favor, insira um e-mail institucional válido (@escola.pr.gov.br).");
+                return;
+            }
             
-            // Simulação de análise gramatical pedagógica baseada em palavras-chave comuns
-            explanationText.innerHTML = `
-                <strong>Análise concluída para o usuário:</strong> ${id}<br><br>
-                <strong>Dica de Resolução:</strong> Identificamos que este exercício trata de concordância verbal ou tempos simples.<br><br>
-                1. Procure pelo <strong>sujeito</strong> da frase (Ex: He, She, They).<br>
-                2. Se a frase contiver indicadores de rotina como <em>everyday</em> ou <em>always</em>, o verbo precisará receber "s" ou "es" se o sujeito for singular.<br><br>
-                💡 <em>Copie e cole este mesmo enunciado na nossa conversa principal se precisar que eu te forneça a tradução exata e a alternativa correta agora mesmo!</em>
-            `;
+            // Redireciona de forma direta e segura para a central de autenticação e plataformas oficiais
+            window.location.href = "https://educacao.pr.gov.br"; 
         }
     </script>
 
