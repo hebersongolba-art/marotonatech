@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar no Inglês Paraná</title>
+    <title>Treine sua própria IA de Inglês</title>
     <style>
         :root {
-            --primary-color: #0f4c81;
-            --secondary-color: #1f7a8c;
-            --bg-color: #f7f9fc;
-            --card-bg: #ffffff;
-            --text-color: #2b2d42;
+            --primary: #4a148c;
+            --secondary: #7c4dff;
+            --bg: #f5f5f7;
+            --card: #ffffff;
+            --text: #212121;
         }
 
         * {
@@ -21,134 +21,180 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .login-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            max-width: 440px;
+        .container {
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
             width: 100%;
+            padding: 25px;
+        }
+
+        h2 {
+            color: var(--primary);
             text-align: center;
-            border-top: 6px solid var(--primary-color);
-        }
-
-        .login-card h2 {
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.6rem;
-        }
-
-        .login-card p {
-            font-size: 0.95rem;
-            color: #5c677d;
-            margin-bottom: 25px;
-            line-height: 1.4;
-        }
-
-        .input-group {
-            text-align: left;
             margin-bottom: 20px;
         }
 
-        .input-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
+        .section {
+            background: #fcfaff;
+            border: 1px solid #e1d5f5;
+            padding: 15px;
             border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
             font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s;
         }
 
-        .input-group input:focus {
-            border-color: var(--secondary-color);
-        }
-
-        .btn-launch {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        button {
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 14px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: opacity 0.2s;
+            font-weight: bold;
+            width: 100%;
         }
 
-        .btn-launch:hover {
-            opacity: 0.95;
+        button:hover {
+            background: var(--secondary);
         }
 
-        .security-footer {
-            margin-top: 25px;
+        .chat-output {
+            background: #f1f3f4;
+            padding: 12px;
+            border-radius: 6px;
+            min-height: 50px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            white-space: pre-line;
+        }
+
+        .memory-tag {
+            display: inline-block;
+            background: #e1d5f5;
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
             font-size: 0.8rem;
-            color: #94a3b8;
-            line-height: 1.4;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 15px;
+            margin: 4px;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <h2>Acesso ao Inglês Paraná</h2>
-        <p>Insira seus dados institucionais abaixo para abrir a página oficial de autenticação da sua conta de estudante.</p>
-        
-        <div class="input-group">
-            <label for="student-email">E-mail @escola:</label>
-            <input type="email" id="student-email" placeholder="nome.sobrenome@escola.pr.gov.br" required>
+    <div class="container">
+        <h2>🧠 Painel de Treinamento da IA</h2>
+        <p style="font-size: 0.9rem; text-align: center; margin-bottom: 25px; color: #666;">
+            Ensine regras ou respostas de inglês para a sua inteligência artificial local.
+        </p>
+
+        <!-- 1. PARTE PARA ENSINAR A IA -->
+        <div class="section">
+            <h3>1. Ensinar Nova Regra/Palavra (Inputs de Treino)</h3>
+            <input type="text" id="trigger-input" placeholder="Quando o usuário disser... (Ex: 'Simple Present')">
+            <textarea id="response-input" rows="2" placeholder="A IA deve responder... (Ex: 'Adicione S para He, She, It!')"></textarea>
+            <button onclick="trainAI()">Salvar na Memória da IA</button>
+            <div id="memory-list" style="margin-top: 10px;"></div>
         </div>
 
-        <div class="input-group">
-            <label for="student-password">Senha institucional:</label>
-            <input type="password" id="student-password" placeholder="Digite sua senha de estudante" required>
-        </div>
-
-        <button class="btn-launch" onclick="launchPlatform()">Abrir Minhas Lições</button>
-
-        <div class="security-footer">
-            🔒 <strong>Conexão Criptografada:</strong> A validação de usuário e senha ocorre dentro do ambiente institucional seguro da Secretaria de Educação.
+        <!-- 2. PARTE PARA TESTAR A IA -->
+        <div class="section">
+            <h3>2. Testar o Aprendizado da IA</h3>
+            <input type="text" id="test-input" placeholder="Digite algo para ver se ela aprendeu..." onkeypress="checkEnter(event)">
+            <button onclick="testAI()" style="background: #007bc4;">Enviar Pergunta</button>
+            
+            <div class="chat-output" id="chat-box">
+                <em>A resposta da IA aparecerá aqui...</em>
+            </div>
         </div>
     </div>
 
     <script>
-        function launchPlatform() {
-            const email = document.getElementById('student-email').value.trim();
-            const password = document.getElementById('student-password').value.trim();
-            
-            if (email === "" || password === "") {
-                alert("Por favor, preencha os campos de e-mail e senha para continuar.");
+        // Banco de dados local na memória do navegador (Objeto chave-valor)
+        let aiMemory = {
+            "olá": "Olá Professor! O que vamos estudar ou treinar hoje?",
+            "hello": "Hello! I am ready to learn more English rules with you."
+        };
+
+        function trainAI() {
+            const trigger = document.getElementById('trigger-input').value.trim().toLowerCase();
+            const response = document.getElementById('response-input').value.trim();
+
+            if (trigger === "" || response === "") {
+                alert("Por favor, preencha o que o usuário diz e qual deve ser a resposta da IA.");
                 return;
             }
 
-            if (!email.includes("@escola")) {
-                alert("Por favor, utilize um e-mail válido com a extensão institucional @escola.");
-                return;
-            }
+            // Salva na memória
+            aiMemory[trigger] = response;
             
-            // Redirecionamento direto para a central integrada de login oficial da SEED-PR
-            window.location.href = "https://educacao.pr.gov.br"; 
+            // Limpa os campos
+            document.getElementById('trigger-input').value = "";
+            document.getElementById('response-input').value = "";
+            
+            updateMemoryUI();
+            alert("Sucesso! A IA aprendeu esse comando.");
         }
+
+        function updateMemoryUI() {
+            const list = document.getElementById('memory-list');
+            list.innerHTML = "<strong>Memória Atual:</strong><br>";
+            for (let key in aiMemory) {
+                list.innerHTML += `<span class="memory-tag">"${key}"</span>`;
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') testAI();
+        }
+
+        function testAI() {
+            const testInput = document.getElementById('test-input').value.trim().toLowerCase();
+            const chatBox = document.getElementById('chat-box');
+
+            if (testInput === "") return;
+
+            let foundResponse = "Desculpe, ainda não fui treinada para entender essa palavra ou comando. Pode me ensinar na seção acima?";
+
+            // Procura na memória se existe alguma palavra-chave correspondente
+            for (let key in aiMemory) {
+                if (testInput.includes(key)) {
+                    foundResponse = aiMemory[key];
+                    break;
+                }
+            }
+
+            chatBox.innerHTML = `<strong>Você:</strong> ${testInput}<br><strong>IA:</strong> ${foundResponse}`;
+            document.getElementById('test-input').value = "";
+        }
+
+        // Inicializa mostrando o que ela já sabe por padrão
+        updateMemoryUI();
     </script>
 
 </body>
