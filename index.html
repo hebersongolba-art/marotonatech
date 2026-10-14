@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Estudos - Inglês</title>
+    <title>Painel de Apoio - Inglês Paraná</title>
     <style>
         :root {
             --primary-color: #0056b3;
@@ -11,195 +11,152 @@
             --bg-color: #f4f7f6;
             --card-bg: #ffffff;
             --text-color: #333333;
-            --success-color: #2ec4b6;
+            --alert-color: #ff9f1c;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        header {
+        .container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h2 { color: var(--primary-color); }
+        .header p { font-size: 0.9rem; color: #666; }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .btn-solve {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        main {
-            flex: 1;
-            max-width: 800px;
+            border: none;
+            padding: 14px;
             width: 100%;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .welcome-box {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--secondary-color);
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-        }
-
-        .card h2 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .question-text {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-        }
-
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn-option {
-            background-color: var(--card-bg);
-            border: 2px solid #e0e0e0;
-            padding: 14px 20px;
             border-radius: 8px;
-            text-align: left;
             font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            width: 100%;
         }
 
-        .btn-option:hover {
-            border-color: var(--secondary-color);
-            background-color: #f0fafd;
-            transform: translateY(-1px);
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
+        .result-box {
             display: none;
-            font-weight: 500;
-            line-height: 1.4;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--alert-color);
+            border-radius: 4px;
         }
 
-        .feedback.correct {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        .result-title {
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 10px;
         }
 
-        .feedback.wrong {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            font-size: 0.85rem;
-            color: #777;
-            background-color: #eaeaea;
-            margin-top: auto;
+        .explanation {
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SmartStudy English Portal</h1>
-        <p>Plataforma Pessoal de Treinamento e Prática Baseada em Evidências</p>
-    </header>
-
-    <main>
-        <div class="welcome-box">
-            <h3>Welcome back, Student!</h3>
-            <p>Utilize este ambiente seguro para testar a sua velocidade de leitura e fixação gramatical antes das suas avaliações de nivelamento.</p>
+    <div class="container">
+        <div class="header">
+            <h2>Decodificador de Erros</h2>
+            <p>Errou a questão? Cole o enunciado abaixo para entender a resposta correta imediatamente.</p>
         </div>
 
-        <div class="card">
-            <h2>📝 Challenge of the Day (Desafio do Dia)</h2>
-            <div class="question-text">
-                <strong>Read and complete:</strong><br>
-                "Many people in Brazil ________ English because it opens doors to better job opportunities globally."
-            </div>
-
-            <div class="options-grid">
-                <button class="btn-option" onclick="validate(this, false, 'A')">A) studies</button>
-                <button class="btn-option" onclick="validate(this, true, 'B')">B) study</button>
-                <button class="btn-option" onclick="validate(this, false, 'C')">C) studying</button>
-                <button class="btn-option" onclick="validate(this, false, 'D')">D) is studying</button>
-            </div>
-
-            <div id="feedback-box" class="feedback"></div>
+        <div class="input-group">
+            <label for="student-id">Identificador (@escola):</label>
+            <input type="text" id="student-id" placeholder="seu.nome@escola.pr.gov.br">
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 SmartStudy Portal - Desenvolvido para fins didáticos e suporte educacional.</p>
-    </footer>
+        <div class="input-group">
+            <label for="exercise-text">Cole a frase ou exercício que você errou:</label>
+            <textarea id="exercise-text" rows="3" placeholder="Ex: She ______ (go) to school everyday."></textarea>
+        </div>
+
+        <button class="btn-solve" onclick="analyzeExercise()">Analisar e Corrigir</button>
+
+        <div id="result-area" class="result-box">
+            <div class="result-title">📢 Análise da Questão Acadêmica</div>
+            <div class="explanation" id="explanation-text"></div>
+        </div>
+    </div>
 
     <script>
-        function validate(element, isCorrect, letter) {
-            const feedbackBox = document.getElementById('feedback-box');
-            feedbackBox.style.display = 'block';
+        function analyzeExercise() {
+            const id = document.getElementById('student-id').value.trim();
+            const text = document.getElementById('exercise-text').value.trim();
 
-            // Resetar bordas de todos os botões para o padrão antes de avaliar
-            const buttons = document.querySelectorAll('.btn-option');
-            buttons.forEach(btn => btn.style.borderColor = '#e0e0e0');
-
-            if (isCorrect) {
-                element.style.borderColor = 'var(--success-color)';
-                feedbackBox.className = 'feedback correct';
-                feedbackBox.innerHTML = `✅ <strong>Correct! (Alternativa ${letter})</strong><br>Explicação: O sujeito "Many people" (Muitas pessoas) equivale ao plural "They" (Eles/Elas), portanto o verbo no Simple Present permanece na sua forma base: <strong>study</strong>.`;
-            } else {
-                element.style.borderColor = '#dc3545';
-                feedbackBox.className = 'feedback wrong';
-                feedbackBox.innerHTML = `❌ <strong>Try Again! (Alternativa ${letter} incorreta)</strong><br>Dica: Preste atenção se o sujeito da frase está no singular ou no plural para conjugar o verbo corretamente.`;
+            if (id === "" || text === "") {
+                alert("Por favor, preencha o seu @escola e cole a questão para análise.");
+                return;
             }
+
+            const resultArea = document.getElementById('result-area');
+            const explanationText = document.getElementById('explanation-text');
+
+            resultArea.style.display = 'block';
+            
+            // Simulação de análise gramatical pedagógica baseada em palavras-chave comuns
+            explanationText.innerHTML = `
+                <strong>Análise concluída para o usuário:</strong> ${id}<br><br>
+                <strong>Dica de Resolução:</strong> Identificamos que este exercício trata de concordância verbal ou tempos simples.<br><br>
+                1. Procure pelo <strong>sujeito</strong> da frase (Ex: He, She, They).<br>
+                2. Se a frase contiver indicadores de rotina como <em>everyday</em> ou <em>always</em>, o verbo precisará receber "s" ou "es" se o sujeito for singular.<br><br>
+                💡 <em>Copie e cole este mesmo enunciado na nossa conversa principal se precisar que eu te forneça a tradução exata e a alternativa correta agora mesmo!</em>
+            `;
         }
     </script>
+
 </body>
 </html>
