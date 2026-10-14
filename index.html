@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso Seguro - Inglês Paraná Highs</title>
+    <title>Entrar no Inglês Paraná</title>
     <style>
         :root {
-            --primary-color: #003366;
-            --secondary-color: #0066cc;
-            --bg-color: #f0f4f8;
+            --primary-color: #0f4c81;
+            --secondary-color: #1f7a8c;
+            --bg-color: #f7f9fc;
             --card-bg: #ffffff;
-            --text-color: #333333;
+            --text-color: #2b2d42;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -34,8 +34,8 @@
             background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 420px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            max-width: 440px;
             width: 100%;
             text-align: center;
             border-top: 6px solid var(--primary-color);
@@ -43,13 +43,13 @@
 
         .login-card h2 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 1.6rem;
         }
 
         .login-card p {
             font-size: 0.95rem;
-            color: #555;
+            color: #5c677d;
             margin-bottom: 25px;
             line-height: 1.4;
         }
@@ -70,7 +70,7 @@
         .input-group input {
             width: 100%;
             padding: 12px;
-            border: 2px solid #dcdcdc;
+            border: 2px solid #e2e8f0;
             border-radius: 8px;
             font-size: 1rem;
             outline: none;
@@ -81,70 +81,72 @@
             border-color: var(--secondary-color);
         }
 
-        .btn-redirect {
+        .btn-launch {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
             padding: 14px;
             width: 100%;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: opacity 0.2s;
         }
 
-        .btn-redirect:hover {
+        .btn-launch:hover {
             opacity: 0.95;
         }
 
-        .security-notice {
-            margin-top: 20px;
+        .security-footer {
+            margin-top: 25px;
             font-size: 0.8rem;
-            color: #888;
-            line-height: 1.3;
+            color: #94a3b8;
+            line-height: 1.4;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <div class="login-card">
-        <h2>Inglês Paraná Highs</h2>
-        <p>Insira suas informações institucionais para abrir com segurança a plataforma oficial de lições.</p>
+        <h2>Acesso ao Inglês Paraná</h2>
+        <p>Insira seus dados institucionais abaixo para abrir a página oficial de autenticação da sua conta de estudante.</p>
         
         <div class="input-group">
-            <label for="email">E-mail @escola:</label>
-            <input type="email" id="email" placeholder="seu.nome@escola.pr.gov.br" required>
+            <label for="student-email">E-mail @escola:</label>
+            <input type="email" id="student-email" placeholder="nome.sobrenome@escola.pr.gov.br" required>
         </div>
 
         <div class="input-group">
-            <label for="password">Senha institucional:</label>
-            <input type="password" id="password" placeholder="Digite sua senha institucional" required>
+            <label for="student-password">Senha institucional:</label>
+            <input type="password" id="student-password" placeholder="Digite sua senha de estudante" required>
         </div>
 
-        <button class="btn-redirect" onclick="processAccess()">Entrar no Inglês Paraná</button>
+        <button class="btn-launch" onclick="launchPlatform()">Abrir Minhas Lições</button>
 
-        <p class="security-notice">
-            🔒 <strong>Aviso de Segurança:</strong> Seus dados de login são protegidos e validados diretamente pelo servidor integrado oficial da SEED-PR.
-        </p>
+        <div class="security-footer">
+            🔒 <strong>Conexão Criptografada:</strong> A validação de usuário e senha ocorre dentro do ambiente institucional seguro da Secretaria de Educação.
+        </div>
     </div>
 
     <script>
-        function processAccess() {
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
+        function launchPlatform() {
+            const email = document.getElementById('student-email').value.trim();
+            const password = document.getElementById('student-password').value.trim();
             
             if (email === "" || password === "") {
-                alert("Por favor, preencha todos os campos obrigatórios.");
+                alert("Por favor, preencha os campos de e-mail e senha para continuar.");
                 return;
             }
 
             if (!email.includes("@escola")) {
-                alert("Por favor, insira um e-mail institucional válido (@escola.pr.gov.br).");
+                alert("Por favor, utilize um e-mail válido com a extensão institucional @escola.");
                 return;
             }
             
-            // Redireciona de forma direta e segura para a central de autenticação e plataformas oficiais
+            // Redirecionamento direto para a central integrada de login oficial da SEED-PR
             window.location.href = "https://educacao.pr.gov.br"; 
         }
     </script>
