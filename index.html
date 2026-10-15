@@ -1,135 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Painel de Automação - Inglês Paraná</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Guru - English Practice</title>
     <style>
-        /* Estilização do painel flutuante */
-        .painel-automacao {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 280px;
-            background-color: #1e1e24;
-            color: #ffffff;
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 99999;
-            padding: 15px;
-            border: 1px solid #3a3a4a;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        .painel-titulo {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             text-align: center;
-            color: #4caf50;
-            border-bottom: 1px solid #3a3a4a;
-            padding-bottom: 5px;
+            width: 350px;
         }
-        .status-container {
-            font-size: 12px;
-            margin-bottom: 15px;
-            background: #2a2a35;
-            padding: 8px;
-            border-radius: 4px;
-        }
-        .status-log {
-            color: #ffd700;
+        h1 { color: var(--primary); font-size: 1.5rem; }
+        .card {
+            margin: 20px 0;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1.2rem;
             font-weight: bold;
         }
-        .btn-controle {
-            width: 100%;
+        input {
+            width: 80%;
             padding: 10px;
-            border: none;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
             border-radius: 4px;
-            font-weight: bold;
+        }
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
         }
-        .btn-ligar {
-            background-color: #4caf50;
-            color: white;
-        }
-        .btn-ligar:hover { background-color: #45a049; }
-        .btn-desligar {
-            background-color: #f44336;
-            color: white;
-            display: none;
-        }
-        .btn-desligar:hover { background-color: #da190b; }
+        button:hover { opacity: 0.9; }
+        #feedback { margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- Estrutura HTML do Painel que ficará visível na tela -->
-    <div class="painel-automacao" id="meuPainel">
-        <div class="painel-titulo">🤖 ROBÔ INGLÊS PARANÁ</div>
-        <div class="status-container">
-            Status: <span id="statusTexto" class="status-log">Inativo</span><br>
-            Último Índice: <span id="indiceTexto">-</span>
-        </div>
-        <button id="btnLigar" class="btn-controle btn-ligar" onclick="iniciarRobo()">LIGAR AUTOMAÇÃO</button>
-        <button id="btnDesligar" class="btn-controle btn-desligar" onclick="pararRobo()">PARAR AUTOMAÇÃO</button>
-    </div>
+<div class="container">
+    <h1>English Flashcards</h1>
+    <div class="card" id="word-display">Carregando...</div>
+    <input type="text" id="user-input" placeholder="Tradução aqui...">
+    <br>
+    <button onclick="checkAnswer()">Verificar</button>
+    <div id="feedback"></div>
+    <p id="score">Acertos: 0</p>
+</div>
 
-    <!-- Script JavaScript embutido que faz a mágica acontecer -->
-    <script>
-        let loopAutomacao = null;
+<script>
+    const vocabulary = [
+        { en: "Hardworking", pt: "Esforçado" },
+        { en: "Indeed", pt: "De fato" },
+        { en: "Reliable", pt: "Confiável" },
+        { en: "Environment", pt: "Meio ambiente" },
+        { en: "Improvement", pt: "Melhoria" }
+    ];
 
-        // Lista de índices com os seletores dos botões da plataforma
-        const seletoresBotoes = [
-            '.navigation-button--next', 
-            '.btn-next',                
-            'button.continue',          
-            '.cloze-p-check-button',    
-            '.modal-close',             
-            '.btn-advance'              
-        ];
+    let currentIndex = 0;
+    let score = 0;
 
-        function iniciarRobo() {
-            // Altera o estado visual dos botões no HTML
-            document.getElementById('btnLigar').style.display = 'none';
-            document.getElementById('btnDesligar').style.display = 'block';
-            document.getElementById('statusTexto').innerText = 'Procurando botões...';
-            document.getElementById('statusTexto').style.color = '#4caf50';
+    function loadCard() {
+        if (currentIndex < vocabulary.length) {
+            document.getElementById('word-display').innerText = vocabulary[currentIndex].en;
+            document.getElementById('user-input').value = "";
+            document.getElementById('feedback').innerText = "";
+        } else {
+            document.querySelector('.container').innerHTML = `<h1>Fim do Treino!</h1><p>Seu score final foi ${score} de ${vocabulary.length}</p><button onclick="location.reload()">Reiniciar</button>`;
+        }
+    }
 
-            // Inicia o ciclo de checagem a cada 4 segundos
-            loopAutomacao = setInterval(() => {
-                let botaoAchado = null;
-                let indiceDetectado = -1;
+    function checkAnswer() {
+        const input = document.getElementById('user-input').value.trim().toLowerCase();
+        const correct = vocabulary[currentIndex].pt.toLowerCase();
+        const feedback = document.getElementById('feedback');
 
-                // Varre a lista de índices HTML da página do curso
-                for (let i = 0; i < seletoresBotoes.length; i++) {
-                    const elemento = document.querySelector(seletoresBotoes[i]);
-                    if (elemento) {
-                        botaoAchado = elemento;
-                        indiceDetectado = i;
-                        break; // Para o loop ao achar o primeiro botão ativo
-                    }
-                }
-
-                // Se o script encontrar um botão mapeado pelo índice HTML
-                if (botaoAchado && !botaoAchado.disabled) {
-                    document.getElementById('indiceTexto').innerText = `Índice [${indiceDetectado}]`;
-                    botaoAchado.click(); // Executa o clique
-                } else {
-                    document.getElementById('indiceTexto').innerText = "Nenhum na tela";
-                }
-
-            }, 4000);
+        if (input === correct) {
+            feedback.innerText = "✅ Correto!";
+            feedback.style.color = "green";
+            score++;
+        } else {
+            feedback.innerText = `❌ Errado! Era: ${vocabulary[currentIndex].pt}`;
+            feedback.style.color = "red";
         }
 
-        function pararRobo() {
-            // Restaura o painel HTML para o estado original
-            clearInterval(loopAutomacao);
-            document.getElementById('btnLigar').style.display = 'block';
-            document.getElementById('btnDesligar').style.display = 'none';
-            document.getElementById('statusTexto').innerText = 'Inativo';
-            document.getElementById('statusTexto').style.color = '#ffd700';
-            document.getElementById('indiceTexto').innerText = "-";
-        }
-    </script>
+        currentIndex++;
+        document.getElementById('score').innerText = `Acertos: ${score}`;
+        setTimeout(loadCard, 1500);
+    }
+
+    loadCard();
+</script>
+
 </body>
 </html>
